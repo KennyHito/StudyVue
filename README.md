@@ -1,4 +1,4 @@
-#### 自学Vue，学习的中编写的Demo，勿喷！
+☺ 自学Vue开发，学习的中编写的Demo，勿喷！☺
 
 ```
 yarn install
