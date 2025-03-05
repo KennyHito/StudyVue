@@ -1,25 +1,41 @@
 <!-- 结构 -->
 <template>
-  <div></div>
+  <div>
+    <!-- 子组件导航栏 -->
+    <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
+      :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
+  </div>
 </template>
 
 <!-- 逻辑处理 -->
 <script>
 // 引入其他组件
-
+import MyNavBar from '@/components/MyNavBar.vue';
 
 export default {
-  name: 'name',
+  name: 'TestFour',
+  components: {
+    MyNavBar
+  },
   data() {
     return {
-
+      nav: {
+        title: "测试_4",
+        leftButtonText: "",
+        rightButtonText: ""
+      },
     }
   },
   mounted() {
 
   },
   methods: {
+    handleLeftClick() {
+      this.$router.back();
+    },
+    handleRightClick() {
 
+    },
   },
   computed: {
 

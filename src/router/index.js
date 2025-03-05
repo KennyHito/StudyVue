@@ -56,6 +56,14 @@ const router = new Router({
         title: "TestThree"
       },
     },
+    {
+      path: "/TestFour",
+      name: "TestFour",
+      component: () => import("../views/TestPage/TestFour.vue"),
+      meta: {
+        title: "TestFour"
+      },
+    },
   ]
 });
 
