@@ -3,8 +3,8 @@
     <!-- 子组件导航栏 -->
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
-    <div class="container">
 
+    <div class="container">
       <!-- 子组件MoneyInput -->
       <van-button class="button-box" color="linear-gradient(to right, #ff6034, #ee0a24)" @click="handleClick">
         获取输入的用户名

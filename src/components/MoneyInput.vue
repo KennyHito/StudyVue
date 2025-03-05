@@ -1,14 +1,13 @@
 <!-- 结构 -->
 <template>
   <div>
-    <van-field v-model="value" label="用户名" placeholder="请输入用户名" class="input-box" />
+    <van-field v-model="value" label="用户名" placeholder="请输入用户名" class="input-box" clearable />
     <div class="placeholder-box">{{ placeholderText }}</div>
   </div>
 </template>
 
 <!-- 逻辑处理 -->
 <script>
-
 
 export default {
   props: {
@@ -42,12 +41,14 @@ export default {
 <!-- 样式 -->
 <style scoped lang='less'>
 .placeholder-box {
-  font-size: 30px;
+  font-size: 20px;
   color: orange;
 }
 
 .input-box {
-  height: 50px;
+  background-color: aliceblue;
+  border: 1px solid #ccc;
+  border-radius: 10px;
   font-size: 20px;
 }
 </style>
