@@ -1,8 +1,11 @@
+// 引用vue
 import Vue from 'vue'
+// 引用APP,它是所有组件的父组件
 import App from './App.vue'
 import router from './router'
 import 'vant/lib/index.less';
 
+// 关闭生产提示
 Vue.config.productionTip = false
 // 为 Vue.prototype 添加一个全局属性
 Vue.prototype.$apiBaseUrl = 'https://www.baidu.com';
