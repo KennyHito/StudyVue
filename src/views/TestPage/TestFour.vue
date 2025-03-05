@@ -22,7 +22,7 @@ export default {
       nav: {
         title: "测试_4",
         leftButtonText: "",
-        rightButtonText: "你好"
+        rightButtonText: ""
       },
     }
   },
