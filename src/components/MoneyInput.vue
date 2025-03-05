@@ -1,6 +1,9 @@
 <!-- 结构 -->
 <template>
-  <div class="placeholder-box">{{ placeholderText }}</div>
+  <div>
+    <van-field v-model="value" label="用户名" placeholder="请输入用户名" class="input-box" />
+    <div class="placeholder-box">{{ placeholderText }}</div>
+  </div>
 </template>
 
 <!-- 逻辑处理 -->
@@ -18,14 +21,16 @@ export default {
   },
   data() {
     return {
-
+      value: ''
     }
   },
   mounted() {
 
   },
   methods: {
-
+    showMoney() {
+      alert(this.value)
+    }
   },
   computed: {
 
@@ -39,5 +44,10 @@ export default {
 .placeholder-box {
   font-size: 30px;
   color: orange;
+}
+
+.input-box {
+  height: 50px;
+  font-size: 20px;
 }
 </style>

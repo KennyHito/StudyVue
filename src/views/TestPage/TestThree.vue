@@ -4,6 +4,11 @@
     <!-- 子组件导航栏 -->
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
+
+    <div>
+      <h1 v-text="msg" ref="h1Title"></h1>
+      <button @click="showDOM">点我获取h1的内容</button>
+    </div>
   </div>
 </template>
 
@@ -24,6 +29,7 @@ export default {
         leftButtonText: "",
         rightButtonText: ""
       },
+      msg: "欢迎你来到中国!"
     }
   },
   mounted() {
@@ -36,6 +42,9 @@ export default {
     handleRightClick() {
 
     },
+    showDOM() {
+      console.log(this.$refs.h1Title.innerHTML);
+    }
   },
   computed: {
 

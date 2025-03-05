@@ -6,7 +6,10 @@
     <div class="container">
 
       <!-- 子组件MoneyInput -->
-      <MoneyInput :placeholderText="moneyPlaceholder" />
+      <van-button class="button-box" color="linear-gradient(to right, #ff6034, #ee0a24)" @click="handleClick">
+        获取输入的用户名
+      </van-button>
+      <MoneyInput :placeholderText="moneyPlaceholder" ref="moneyInputRef" />
 
       <div>2、日期字符串转年月日形式: {{ formattedDate }}</div>
       <div>3、全局配置的属性: {{ $apiBaseUrl }}</div>
@@ -59,6 +62,9 @@ export default {
     handleRightClick() {
 
     },
+    handleClick() {
+      this.$refs.moneyInputRef.showMoney();
+    }
   },
   computed: {
     formattedDate() {
@@ -81,10 +87,19 @@ export default {
 <style lang="less" scoped>
 .container {
   padding: 10px;
+  font-size: 18px;
 }
 
 .radio-group-style {
   display: flex;
   margin-top: 10px;
+}
+
+.button-box {
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 18px;
+  margin: 5px;
 }
 </style>
