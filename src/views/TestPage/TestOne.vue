@@ -9,7 +9,7 @@
       <van-button class="button-box" color="linear-gradient(to right, #ff6034, #ee0a24)" @click="handleClick">
         获取输入的用户名
       </van-button>
-      <MoneyInput :placeholderText="moneyPlaceholder" ref="moneyInputRef" />
+      <MoneyInput :name="studentName" :age="studentAge" ref="moneyInputRef" />
 
       <div>2、日期字符串转年月日形式: {{ formattedDate }}</div>
       <div>3、全局配置的属性: {{ $apiBaseUrl }}</div>
@@ -40,7 +40,8 @@ export default {
 
   },
   mounted() {
-    this.moneyPlaceholder = "1、你好,这里的内容来源于父组件传给子组件的!";
+    this.studentName = "张三";
+    this.studentAge = 18;
   },
   data() {
     return {
@@ -52,7 +53,8 @@ export default {
       date: new Date(),
       currData: [2, 4, 3, 13, 53, 23, 56, 99, 37],
       selectedOption: "1",
-      moneyPlaceholder: "",
+      studentName: "",
+      studentAge: 0
     };
   },
   methods: {

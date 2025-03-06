@@ -2,7 +2,8 @@
 <template>
   <div>
     <van-field v-model="value" label="用户名" placeholder="请输入用户名" class="input-box" clearable />
-    <div class="placeholder-box">{{ placeholderText }}</div>
+    <div class="div_box">姓名: {{ name }}</div>
+    <div class="div_box">年龄: {{ age }}</div>
   </div>
 </template>
 
@@ -10,13 +11,26 @@
 <script>
 
 export default {
+  name: 'MoneyInput',
+  // props第一种方式: 简单接受
+  // props: ['name','age'],
+
+  // props第二种方式: 接收的同时对数据进行类型限制
+  // props: {
+  //   name: String,
+  //   age: Number,
+  // },
+
+  // props第三种方式: 接收的同时对数据进行类型限制+默认值的指定+必要性的限制
   props: {
-    placeholderText: {//placeholderText字段名和父组件字段名一致即可
-      type: String,//字段类型
-      default() {
-        return "";//字段默认值
-      },
+    name: {
+      type: String,
+      required: true,
     },
+    age: {
+      type: Number,
+      default: 99,
+    }
   },
   data() {
     return {
@@ -40,7 +54,7 @@ export default {
 
 <!-- 样式 -->
 <style scoped lang='less'>
-.placeholder-box {
+.div_box {
   font-size: 20px;
   color: orange;
 }
