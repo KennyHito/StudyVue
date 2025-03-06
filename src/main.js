@@ -56,6 +56,7 @@ import {
 	AddressList,
 	AddressEdit,
 	Area,
+	Toast
 } from 'vant';
 
 Vue.use(Button);
@@ -103,6 +104,7 @@ Vue.use(GoodsActionIcon);
 Vue.use(AddressList);
 Vue.use(AddressEdit);
 Vue.use(Area);
+Vue.use(Toast);
 
 window.vm = new Vue({
 	el: '#app',

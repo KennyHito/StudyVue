@@ -55,8 +55,8 @@ export default {
     return {
       nav: {
         title: "测试_1",
-        leftButtonText: "",
-        rightButtonText: ""
+        leftButtonText: "返回",
+        rightButtonText: "啊啊啊"
       },
       date: new Date(),
       currData: [2, 4, 3, 13, 53, 23, 56, 99, 37],
@@ -70,7 +70,7 @@ export default {
       this.$router.back();
     },
     handleRightClick() {
-
+      this.$toast('啊啊啊');
     },
     handleClick() {
       this.$refs.moneyInputRef.showMoney();
