@@ -70,16 +70,16 @@ export default {
     onClickIcon(tag) {
       switch (tag) {
         case 1:
-          console.log('我是客服');
+          this.$toast('我是客服');
           break;
         case 2:
-          console.log('我是购物车');
+          this.$toast('我是购物车');
           break;
         case 3:
-          console.log('我是店铺');
+          this.$toast('我是店铺');
           break;
         case 4:
-          console.log('我是立即购买');
+          this.$toast('我是立即购买');
           break;
         default:
           break
