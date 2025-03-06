@@ -42,7 +42,11 @@ export default {
   },
   methods: {
     showMoney() {
-      alert(this.value)
+      if (this.value === '') {
+        this.$toast('请输入用户名')
+        return
+      }
+      this.$toast("输入的用户名:" + this.value)
     }
   },
   computed: {

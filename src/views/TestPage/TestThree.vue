@@ -43,7 +43,7 @@ export default {
 
     },
     showDOM() {
-      console.log(this.$refs.h1Title.innerHTML);
+      this.$toast(this.$refs.h1Title.innerHTML);
     }
   },
   computed: {

@@ -1,7 +1,7 @@
 export const common = {
   methods: {
     showMsg(){
-      alert("这是一个通知!")
+      this.$toast("这是一个通知")
     }
   },
 }
