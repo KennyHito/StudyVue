@@ -4,15 +4,6 @@
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
     <div class="container">
-      <button @click="toggleVisibility">切换可见性</button>
-      <!-- 这个 div 不会在页面上显示 -->
-      <div style="display: none;">这是一个隐藏的元素</div>
-      <!-- 也可以使用绑定的方式 -->
-      <div :style="{ display: 'block' }">根据条件显示或隐藏</div>
-
-      <div :style="{ display: isHidden ? 'none' : 'block', color: 'black', fontSize: '18px' }">
-        美国总统特朗普在当地时间2月26日的内阁会议上证实乌克兰总统泽连斯基将于本周五访美，并签署有关乌克兰稀土矿产及其他事项的协议。不过特朗普强调，美国不会向乌克兰提供太多安全保障。但乌克兰方面认为，这份协议是向美国争取安全保障的核心所在。泽连斯基2月26日当天在基辅对媒体表示，这份协议是大获成功还是悄然消失，全都取决于与特朗普的对话。他将在周五访美时直接向特朗普提三个问题：美国是否还支持乌克兰？乌克兰能否从美国购买武器？乌克兰能否用被冻结的俄罗斯资产买武器？美国总统特朗普在当地时间2月26日的内阁会议上证实乌克兰总统泽连斯基将于本周五访美，并签署有关乌克兰稀土矿产及其他事项的协议。不过特朗普强调，美国不会向乌克兰提供太多安全保障。但乌克兰方面认为，这份协议是向美国争取安全保障的核心所在。泽连斯基2月26日当天在基辅对媒体表示，这份协议是大获成功还是悄然消失，全都取决于与特朗普的对话。他将在周五访美时直接向特朗普提三个问题：美国是否还支持乌克兰？乌克兰能否从美国购买武器？乌克兰能否用被冻结的俄罗斯资产买武器？2016年3月，习近平总书记参加十二届全国人大四次会议黑龙江代表团审议时首次提出：“绿水青山是金山银山，黑龙江的冰天雪地也是金山银山。”从“绿水青山就是金山银山”到“冰天雪地也是金山银山”，一条因地制宜把资源优势变发展优势的可持续发展之路，已然明晰。今年春节前后，习近平总书记20天内两赴东北，足迹踏遍东北三省。在辽宁，他说，“越是发展任务重，越要重视生态环境保护，推动经济社会发展全面绿色转型”；在哈尔滨亚冬会开幕式欢迎宴会上，他说，“来到哈尔滨，我们真切感受到‘冰天雪地也是金山银山’，冰雪文化和冰雪经济正在成为哈尔滨高质量发展的新动能和对外开放的新纽带”；
-      </div>
 
       <div style="display: inline; background-color: lightgreen;">
         这个 div 现在是行内元素
@@ -22,12 +13,27 @@
         另一个行内元素
       </div>
 
+      <hr />
+
       <div>{{ arr }}</div>
       <div class="button-group">
         <button class="button-style" @click="handleChangeArr(1)">数组(增操作)</button>
         <button class="button-style" @click="handleChangeArr(2)">数组(倒序)</button>
         <button class="button-style" @click="handleChangeArr(3)">新窗口打开PDF</button>
       </div>
+
+      <hr />
+
+      <!-- 也可以使用绑定的方式 -->
+      <div :style="{ display: 'block', fontSize: '20px' }">👇🏻点击按钮显示或隐藏👇🏻:</div>
+      <button @click="toggleVisibility"
+        :style="{ backgroundColor: 'red', color: 'yellow', borderRadius: '15px', height: '30px', lineHeight: '20px' }">切换可见性</button>
+
+      <div :style="{ display: isHidden ? 'none' : 'block', color: 'black', fontSize: '20px' }">
+        2016年3月，习近平总书记参加十二届全国人大四次会议黑龙江代表团审议时首次提出：“绿水青山是金山银山，黑龙江的冰天雪地也是金山银山。”从“绿水青山就是金山银山”到“冰天雪地也是金山银山”，一条因地制宜把资源优势变发展优势的可持续发展之路，已然明晰。今年春节前后，习近平总书记20天内两赴东北，足迹踏遍东北三省。在辽宁，他说，“越是发展任务重，越要重视生态环境保护，推动经济社会发展全面绿色转型”；在哈尔滨亚冬会开幕式欢迎宴会上，他说，“来到哈尔滨，我们真切感受到‘冰天雪地也是金山银山’，冰雪文化和冰雪经济正在成为哈尔滨高质量发展的新动能和对外开放的新纽带”；
+      </div>
+
+      <hr />
 
     </div>
   </div>
@@ -95,17 +101,23 @@ export default {
 <style lang="less" scoped>
 .container {
   padding: 20px;
+  font-size: 20px;
 }
 
 .button-group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 
   .button-style {
+    margin-left: 0px;
+    margin-right: 0px;
     margin-top: 10px;
-    width: 150px;
-    height: 30px;
-    min-height: 30px;
+    height: 40px;
+    min-height: 40px;
+    background-color: cadetblue;
+    border-radius: 20px;
+    color: white;
   }
 }
 </style>

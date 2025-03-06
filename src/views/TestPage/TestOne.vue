@@ -10,10 +10,19 @@
         @click="handleClick">
         获取输入的用户名
       </van-button>
+
       <MoneyInput :name="studentName" :age="studentAge" ref="moneyInputRef" />
 
-      <div>2、日期字符串转年月日形式: {{ formattedDate }}</div>
-      <div>3、全局配置的属性: {{ $apiBaseUrl }}</div>
+      <div
+        style="font-size: 20px;margin-left: 0px;margin-right: 0px;background-color: burlywood;text-align: center;border-radius: 10px;">
+        字符串转日期:{{ formattedDate }}
+      </div>
+
+      <div
+        :style="{ marginTop: '10px', fontSize: '15px', height: '20px', lineHeight: '20px', backgroundColor: '#3EF322', textAlign: 'center', borderRadius: '10px' }">
+        全局配置属性: {{
+          $apiBaseUrl }}</div>
+
       <div>
         <van-radio-group class="radio-group-style" v-model="selectedOption">
           4、请选择性别：
@@ -96,7 +105,7 @@ export default {
 
 <style lang="less" scoped>
 .container {
-  text-align: center;
+  text-align: left;
   padding: 10px;
   font-size: 18px;
 }

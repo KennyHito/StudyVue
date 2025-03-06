@@ -5,10 +5,18 @@
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
 
-    <div>
-      <h1 v-text="msg" ref="h1Title"></h1>
+    <div class="content-box">
+      <h1 v-text="msg" ref="h1Title" style="font-size: 18px;"></h1>
       <button @click="showDOM">点我获取h1的内容</button>
     </div>
+
+    <van-goods-action class="bottom-box">
+      <van-goods-action-icon icon="chat-o" text="客服" @click="onClickIcon(1)" />
+      <van-goods-action-icon icon="cart-o" text="购物车" @click="onClickIcon(2)" />
+      <van-goods-action-icon icon="shop-o" text="店铺" @click="onClickIcon(3)" />
+      <van-goods-action-button type="danger" text="立即购买" @click="onClickIcon(4)" />
+    </van-goods-action>
+
   </div>
 </template>
 
@@ -29,7 +37,7 @@ export default {
         leftButtonText: "",
         rightButtonText: ""
       },
-      msg: "欢迎你来到中国!"
+      msg: "欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!"
     }
   },
   mounted() {
@@ -58,6 +66,13 @@ export default {
 }
 </script>
 
-
 <!-- 样式 -->
-<style scoped lang='less'></style>
+<style scoped lang='less'>
+.content-box {
+  padding: 10px;
+}
+
+.bottom-box {
+  font-size: 20px;
+}
+</style>

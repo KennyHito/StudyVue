@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import 'vant/lib/index.less';
+import plugin from './customPlugin/plugin';
 
 // 关闭生产提示
 Vue.config.productionTip = false
@@ -105,6 +106,8 @@ Vue.use(AddressList);
 Vue.use(AddressEdit);
 Vue.use(Area);
 Vue.use(Toast);
+
+Vue.use(plugin);
 
 // main.js
 document.addEventListener('click', (e) => {
