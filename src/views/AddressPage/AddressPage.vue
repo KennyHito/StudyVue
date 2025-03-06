@@ -1,8 +1,10 @@
 <!-- 结构 -->
 <template>
   <div>
-    <van-nav-bar title="地址列表" left-text="返回" right-text="" left-arrow @click-left="onClickLeft"
-      @click-right="onClickRight" />
+    <!-- 子组件导航栏 -->
+    <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
+      :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
+
     <van-address-list v-model="chosenAddressId" :list="list" :disabled-list="disabledList" disabled-text="以下地址超出配送范围"
       default-tag-text="默认" @add="onAdd" @edit="onEdit" />
   </div>
@@ -10,9 +12,19 @@
 
 <!-- 逻辑处理 -->
 <script>
+import MyNavBar from '@/components/MyNavBar.vue';
+
 export default {
+  components: {
+    MyNavBar
+  },
   data() {
     return {
+      nav: {
+        title: "地址列表",
+        leftButtonText: "",
+        rightButtonText: ""
+      },
       chosenAddressId: '1',
       list: [
         {
@@ -50,10 +62,10 @@ export default {
     };
   },
   methods: {
-    onClickLeft() {
+    handleLeftClick() {
       this.$router.back();
     },
-    onClickRight() {
+    handleRightClick() {
 
     },
     onAdd() {

@@ -1,8 +1,10 @@
 <!-- 结构 -->
 <template>
   <div>
-    <van-nav-bar title="编辑地址" left-text="返回" right-text="" left-arrow @click-left="onClickLeft"
-      @click-right="onClickRight" />
+    <!-- 子组件导航栏 -->
+    <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
+      :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
+
     <van-address-edit :area-list="areaList" show-postal show-delete show-set-default show-search-result
       :search-result="searchResult" :address-info="addressInfo" :area-columns-placeholder="['请选择', '请选择', '请选择']"
       @save="onSave" @delete="onDelete" @change-detail="onChangeDetail" @click-area="clickArea" />
@@ -13,9 +15,18 @@
 <script>
 import { Toast } from 'vant';
 import { areaList } from '@vant/area-data';
+import MyNavBar from '@/components/MyNavBar.vue';
 export default {
+  components: {
+    MyNavBar
+  },
   data() {
     return {
+      nav: {
+        title: "编辑地址",
+        leftButtonText: "",
+        rightButtonText: ""
+      },
       areaList,
       searchResult: [],
       addressInfo: {
@@ -32,13 +43,13 @@ export default {
     };
   },
   methods: {
-    onClickLeft() {
+    handleLeftClick() {
       this.$router.back();
     },
-    onClickRight(){
+    handleRightClick() {
 
     },
-    clickArea(){
+    clickArea() {
 
     },
     onSave() {
