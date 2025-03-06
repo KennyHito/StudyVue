@@ -6,7 +6,8 @@
 
     <div class="container">
       <!-- 子组件MoneyInput -->
-      <van-button class="button-box" color="linear-gradient(to right, #ff6034, #ee0a24)" @click="handleClick">
+      <van-button class="button-box" color="linear-gradient(to right,#EA5514,#EB6821,#EC7A2E,#ED8B3C,#EE9C4B)"
+        @click="handleClick">
         获取输入的用户名
       </van-button>
       <MoneyInput :name="studentName" :age="studentAge" ref="moneyInputRef" />
@@ -21,6 +22,11 @@
         </van-radio-group>
       </div>
 
+      <van-button class="button-box"
+        color="linear-gradient(to right, #F1C78E,#BBD2CE,#F3B89E,#EB5E58,#F1D986,#E8C9AC,#CFA8D3,#E5C89E)"
+        @click="showMsg">
+        点击获取通知
+      </van-button>
     </div>
   </div>
 </template>
@@ -29,9 +35,11 @@
 // 引入其他组件
 import MoneyInput from '@/components/MoneyInput.vue'
 import MyNavBar from '@/components/MyNavBar.vue';
+import { common } from '../../mixin/common'
 
 export default {
   name: "TestOne",
+  mixins: [common],
   components: {
     MoneyInput,
     MyNavBar
@@ -88,6 +96,7 @@ export default {
 
 <style lang="less" scoped>
 .container {
+  text-align: center;
   padding: 10px;
   font-size: 18px;
 }
@@ -98,7 +107,7 @@ export default {
 }
 
 .button-box {
-  width: 200px;
+  width: 300px;
   height: 50px;
   border-radius: 25px;
   font-size: 18px;
