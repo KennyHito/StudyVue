@@ -15,8 +15,4 @@ export default {
 </script>
 
 <!-- 样式 -->
-<style scoped lang='less'>
-.app-box {
-  font-size: 30px;
-}
-</style>
+<style scoped lang='less'></style>

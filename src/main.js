@@ -106,6 +106,15 @@ Vue.use(AddressEdit);
 Vue.use(Area);
 Vue.use(Toast);
 
+// main.js
+document.addEventListener('click', (e) => {
+  e.preventDefault();
+}, true);
+
+document.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+}, true);
+
 window.vm = new Vue({
 	el: '#app',
 	render: (h) => h(App),
