@@ -10,6 +10,8 @@ import plugin from './customPlugin/plugin';
 Vue.config.productionTip = false
 // 为 Vue.prototype 添加一个全局属性
 Vue.prototype.$apiBaseUrl = 'https://www.baidu.com';
+// 引入全局 CSS 文件
+import './assets/GlobalStyle.css'; 
 
 import {
 	Button,
@@ -109,12 +111,8 @@ Vue.use(Toast);
 
 Vue.use(plugin);
 
-// main.js
-document.addEventListener('click', (e) => {
-  e.preventDefault();
-}, true);
-
-document.addEventListener('touchstart', (e) => {
+// 阻止 dblclick 事件来禁用双击放大
+document.addEventListener('dblclick', (e) => {
   e.preventDefault();
 }, true);
 
