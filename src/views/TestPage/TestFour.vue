@@ -4,6 +4,10 @@
     <!-- 子组件导航栏 -->
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
+
+    <div>
+      <input v-fbind:value="money">
+    </div>
   </div>
 </template>
 
@@ -24,6 +28,7 @@ export default {
         leftButtonText: "",
         rightButtonText: ""
       },
+      money: "99"
     }
   },
   mounted() {
