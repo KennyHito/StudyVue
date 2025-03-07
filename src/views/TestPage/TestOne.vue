@@ -103,7 +103,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style scoped lang='less'>
 .container {
   text-align: left;
   padding: 10px;

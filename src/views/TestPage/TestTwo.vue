@@ -98,7 +98,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style scoped lang='less'>
 .container {
   padding: 20px;
   font-size: 20px;
