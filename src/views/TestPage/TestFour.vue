@@ -4,6 +4,7 @@
     <!-- 子组件导航栏 -->
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
+
     <div class="container">
       <!-- 工作内容输入框 -->
       <van-field v-model="inputValue" label="工作任务" placeholder="请输入工作任务" class="input-style" clearable
