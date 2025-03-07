@@ -8,6 +8,8 @@
     <div class="content-box">
       <h1 v-text="msg" ref="h1Title" style="font-size: 18px;"></h1>
       <button @click="showDOM">点我获取h1的内容</button>
+      <div class="text">x的值为:{{ x }},y的值为:{{ y }}</div>
+
     </div>
 
     <van-goods-action class="bottom-box">

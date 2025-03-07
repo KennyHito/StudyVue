@@ -7,12 +7,10 @@ export default {
     Vue.mixin({
       data(){
         return {
-          msg: 'hello'
+          x:100,
+          y:200
         }
-      },
-      mounted() {
-        console.log(this.msg)
-      },
+      }
     })
 
     Vue.directive('fbind', {

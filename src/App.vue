@@ -14,5 +14,11 @@ export default {
 }
 </script>
 
-<!-- 样式 -->
-<style scoped lang='less'></style>
+<!-- 不建议在app.vue中写scoped 一般都服务于全局 -->
+<style lang='less'>
+.text {
+  font-size: 18px;
+  font-weight: bold;
+  color: darkkhaki;
+}
+</style>
