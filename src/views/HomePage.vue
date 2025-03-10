@@ -54,24 +54,7 @@ export default {
         path: page
       });
     },
-    onClickIcon(tag) {
-      switch (tag) {
-        case 1:
-          this.$toast('我是客服');
-          break;
-        case 2:
-          this.$toast('我是购物车');
-          break;
-        case 3:
-          this.$toast('我是店铺');
-          break;
-        case 4:
-          this.$toast('我是立即购买');
-          break;
-        default:
-          break
-      }
-    }
+
   },
 }
 </script>
