@@ -10,6 +10,7 @@
       <button @click="showDOM">点我获取h1的内容</button>
       <div class="text">x的值为:{{ x }},y的值为:{{ y }}</div>
       <input v-fbind:value="money">
+      <div>nanoid: {{ noxxx }}</div>
     </div>
 
     <van-goods-action class="bottom-box">
@@ -26,6 +27,7 @@
 <script>
 // 引入其他组件
 import MyNavBar from '@/components/MyNavBar.vue';
+import { nanoid } from 'nanoid';
 
 export default {
   name: 'TestThree',
@@ -40,11 +42,12 @@ export default {
         rightButtonText: ""
       },
       msg: "欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!",
-      money: 100
+      money: 100,
+      noxxx: ''
     }
   },
   mounted() {
-
+    this.noxxx = nanoid();
   },
   methods: {
     handleLeftClick() {
