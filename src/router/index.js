@@ -6,28 +6,28 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: '/homePage',
+      redirect: '/HomePage',
     },
     {
-      path: "/homePage",//首页
-      name: "homePage",
-      component: () => import("../views/HomePage/HomePage.vue"),
+      path: "/HomePage",//首页
+      name: "HomePage",
+      component: () => import("../views/HomePage"),
       meta: {
         title: "首页"
       },
     },
     {
-      path: "/addressPage",
-      name: "addressPage",
-      component: () => import("../views/AddressPage/AddressPage.vue"),
+      path: "/AddressPage",
+      name: "AddressPage",
+      component: () => import("../views/AddressPage/AddressPage"),
       meta: {
         title: "地址列表"
       },
     },
     {
-      path: "/editAddress",
-      name: "editAddress",
-      component: () => import("../views/AddressPage/EditAddress.vue"),
+      path: "/EditAddress",
+      name: "EditAddress",
+      component: () => import("../views/AddressPage/EditAddress"),
       meta: {
         title: "编辑地址"
       },
@@ -35,7 +35,7 @@ const router = new Router({
     {
       path: "/TestOne",
       name: "TestOne",
-      component: () => import("../views/TestPage/TestOne.vue"),
+      component: () => import("../views/TestPage/TestOne"),
       meta: {
         title: "TestOne"
       },
@@ -43,7 +43,7 @@ const router = new Router({
     {
       path: "/TestTwo",
       name: "TestTwo",
-      component: () => import("../views/TestPage/TestTwo.vue"),
+      component: () => import("../views/TestPage/TestTwo"),
       meta: {
         title: "TestTwo"
       },
@@ -51,17 +51,25 @@ const router = new Router({
     {
       path: "/TestThree",
       name: "TestThree",
-      component: () => import("../views/TestPage/TestThree.vue"),
+      component: () => import("../views/TestPage/TestThree"),
       meta: {
         title: "TestThree"
       },
     },
     {
-      path: "/TestFour",
-      name: "TestFour",
-      component: () => import("../views/TestPage/TestFour.vue"),
+      path: "/TodoList",
+      name: "TodoList",
+      component: () => import("../views/TodoList"),
       meta: {
-        title: "TestFour"
+        title: "TodoList"
+      },
+    },
+    {
+      path: "/LocalStorage",
+      name: "LocalStorage",
+      component: () => import("../views/LocalStorage"),
+      meta: {
+        title: "LocalStorage"
       },
     },
   ]
