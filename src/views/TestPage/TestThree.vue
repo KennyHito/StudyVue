@@ -6,10 +6,13 @@
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
 
     <div class="content-box">
-      <h1 v-text="msg" ref="h1Title" style="font-size: 18px;"></h1>
       <button @click="showDOM">点我获取h1的内容</button>
+      <h1 v-text="msg" ref="h1Title" style="font-size: 18px;"></h1>
+      <hr />
       <div class="text">x的值为:{{ x }},y的值为:{{ y }}</div>
+      <hr />
       <input v-fbind:value="money">
+      <hr />
       <div>nanoid: {{ noxxx }}</div>
     </div>
 
@@ -41,7 +44,7 @@ export default {
         leftButtonText: "",
         rightButtonText: ""
       },
-      msg: "欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!欢迎你来到中国!",
+      msg: "我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!",
       money: 100,
       noxxx: ''
     }
