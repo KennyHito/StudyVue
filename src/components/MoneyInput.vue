@@ -2,8 +2,9 @@
 <template>
   <div>
     <van-field v-model="value" label="用户名" placeholder="请输入用户名" class="input-box" clearable />
-    <div class="div_box">姓名: {{ name }}</div>
-    <div class="div_box">年龄: {{ age }}</div>
+    <div class="div_box">父组件传递过来的姓名: {{ name }}</div>
+    <div class="div_box">父组件传递过来的年龄: {{ age }}</div>
+    <button @click="handleChileToPar">子组件内容传递给父组件(看打印)</button>
   </div>
 </template>
 
@@ -13,7 +14,7 @@
 export default {
   name: 'MoneyInput',
   // props第一种方式: 简单接受
-  // props: ['name','age'],
+  props: ['name', 'age', 'getChildMethod'],
 
   // props第二种方式: 接收的同时对数据进行类型限制
   // props: {
@@ -22,16 +23,16 @@ export default {
   // },
 
   // props第三种方式: 接收的同时对数据进行类型限制+默认值的指定+必要性的限制
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-    age: {
-      type: Number,
-      default: 99,
-    }
-  },
+  // props: {
+  //   name: {
+  //     type: String,
+  //     required: true,
+  //   },
+  //   age: {
+  //     type: Number,
+  //     default: 99,
+  //   }
+  // },
   data() {
     return {
       value: ''
@@ -47,6 +48,9 @@ export default {
         return
       }
       this.$toast("输入的用户名:" + this.value)
+    },
+    handleChileToPar() {
+      this.getChildMethod("我是子组件的内容");
     }
   },
   computed: {

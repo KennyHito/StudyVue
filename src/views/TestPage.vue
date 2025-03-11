@@ -8,10 +8,11 @@
       <!-- 子组件MoneyInput -->
       <van-button class="button-box" color="linear-gradient(to right,#EA5514,#EB6821,#EC7A2E,#ED8B3C,#EE9C4B)"
         @click="handleClick">
-        获取输入的用户名
+        在父组件中触发子组件的方法
       </van-button>
+      <MoneyInput :name="studentName" :age="studentAge" ref="moneyInputRef" :getChildMethod="getChildMethod" />
 
-      <MoneyInput :name="studentName" :age="studentAge" ref="moneyInputRef" />
+      <hr />
 
       <div
         style="font-size: 20px;margin-left: 0px;margin-right: 0px;background-color: burlywood;text-align: center;border-radius: 10px;">
@@ -22,15 +23,15 @@
         :style="{ marginTop: '10px', fontSize: '15px', height: '20px', lineHeight: '20px', backgroundColor: '#3EF322', textAlign: 'center', borderRadius: '10px' }">
         全局配置属性: {{
           $apiBaseUrl }}</div>
-
+      <hr />
       <div>
         <van-radio-group class="radio-group-style" v-model="selectedOption">
-          4、请选择性别：
+          请选择性别：
           <van-radio name="1">男</van-radio>
           <van-radio name="2">女</van-radio>
         </van-radio-group>
       </div>
-
+      <hr />
       <van-button class="button-box"
         color="linear-gradient(to right, #F1C78E,#BBD2CE,#F3B89E,#EB5E58,#F1D986,#E8C9AC,#CFA8D3,#E5C89E)"
         @click="showMsg">
@@ -89,7 +90,7 @@
       <hr />
 
       <div style="text-align: center;">
-        <button @click="handleChangeArr(3)" style="border-radius: 10px;width: 250px;">新窗口打开PDF</button>
+        <button @click="handleChangeArr(3)" style="border-radius: 10px;width: 250px;">新窗口打开在线PDF</button>
       </div>
 
       <hr />
@@ -192,6 +193,9 @@ export default {
     },
     handleClick() {
       this.$refs.moneyInputRef.showMoney();
+    },
+    getChildMethod(value) {
+      console.log('打印的内容是:--->', value);
     },
     showDOM() {
       this.$toast(this.$refs.h1Title.innerHTML);

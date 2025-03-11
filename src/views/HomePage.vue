@@ -64,7 +64,7 @@ export default {
     },
     onClickButton(index) {
       let item = this.vcArr[index];
-      console.log('点击了第' + index + '个按钮，按钮内容是：' + item.title);
+      console.log('点击了第' + (index + 1) + '个按钮，按钮内容是：' + item.title);
       this.$router.push({
         path: item.vc,
         query: {
