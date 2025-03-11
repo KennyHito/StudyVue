@@ -14,8 +14,8 @@
         @click="handleClick(2)">
         父触发子方法(ref)
       </van-button>
-      <!-- 子组件MoneyInput -->
-      <MoneyInput :name="studentName" :age="studentAge" ref="showUserNameRef" :getChildMethod="getChildMethod"
+      <!-- 子组件 ChildPage -->
+      <ChildPage :name="studentName" :age="studentAge" ref="showUserNameRef" :getChildMethod="getChildMethod"
         @childToParTwo="childToParTwo" />
 
       <hr />
@@ -130,16 +130,16 @@
 
 <script>
 // 引入其他组件
-import MoneyInput from '@/components/MoneyInput.vue'
+import ChildPage from '@/components/ChildPage.vue'
 import MyNavBar from '@/components/MyNavBar.vue';
 import { common } from '../mixin/common'
 import { nanoid } from 'nanoid';
 
 export default {
-  name: "TestOne",
+  name: "TestPage",
   mixins: [common],
   components: {
-    MoneyInput,
+    ChildPage,
     MyNavBar
   },
   created() {
