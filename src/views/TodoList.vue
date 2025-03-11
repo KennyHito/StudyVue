@@ -48,7 +48,7 @@ export default {
       nav: {
         title: "写个ToDo-List案例",
         leftButtonText: "",
-        rightButtonText: ""
+        rightButtonText: "清除缓存"
       },
       dataArr: JSON.parse(localStorage.getItem('todos')) || [],
       doneCount: 0,
@@ -61,7 +61,9 @@ export default {
       this.$router.back();
     },
     handleRightClick() {
-
+      this.dataArr = [];
+      this.updateDoneCount();
+      window.localStorage.removeItem('todos');
     },
     handleEnter() {
       if (this.inputValue === "") {
@@ -114,7 +116,7 @@ export default {
           this.doneCount++;
         }
       }
-      if (this.doneCount === this.dataArr.length) {
+      if (this.doneCount === this.dataArr.length && this.dataArr.length !== 0) {
         this.selectAllChecked = true;
       } else {
         this.selectAllChecked = false;
