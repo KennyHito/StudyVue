@@ -120,4 +120,7 @@ window.vm = new Vue({
 	el: '#app',
 	render: (h) => h(App),
 	router,
+	beforeCreate() {
+		Vue.prototype.$bus = this; // 全局事件数据总线
+	}
 })

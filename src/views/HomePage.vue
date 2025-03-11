@@ -50,6 +50,10 @@ export default {
           vc: 'SchoolOrStudent',
           title: '组件自定义事件'
         },
+        {
+          vc: 'GlobalEvent',
+          title: '全局事件总线$bus'
+        }
       ],
     }
   },

@@ -64,6 +64,14 @@ const router = new Router({
         title: "SchoolOrStudent"
       },
     },
+    {
+      path: "/GlobalEvent",
+      name: "GlobalEvent",
+      component: () => import("../views/GlobalEvent/GlobalEvent"),
+      meta: {
+        title: "GlobalEvent"
+      },
+    },
   ]
 });
 

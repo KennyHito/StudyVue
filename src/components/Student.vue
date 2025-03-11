@@ -28,6 +28,6 @@ export default {
 .student {
 	background-color: pink;
 	padding: 5px;
-	margin-top: 30px;
+	margin-top: 10px;
 }
 </style>
