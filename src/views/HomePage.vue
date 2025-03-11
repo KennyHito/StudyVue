@@ -33,7 +33,7 @@ export default {
         leftButtonText: "",
         rightButtonText: "地址"
       },
-      vcArr: ['TestOne', 'TestTwo', 'TestThree', 'TodoList', 'LocalStorage'],
+      vcArr: ['TestOne', 'TestTwo', 'TestThree', 'TodoList', 'LocalStorage', 'SchoolOrStudent'],
     }
   },
   methods: {

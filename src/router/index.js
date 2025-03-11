@@ -72,6 +72,14 @@ const router = new Router({
         title: "LocalStorage"
       },
     },
+    {
+      path: "/SchoolOrStudent",
+      name: "SchoolOrStudent",
+      component: () => import("../views/SchoolOrStudent"),
+      meta: {
+        title: "SchoolOrStudent"
+      },
+    },
   ]
 });
 
