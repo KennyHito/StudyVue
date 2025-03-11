@@ -2,9 +2,7 @@
 	<div class="student">
 		<h2>学生姓名：{{ name }}</h2>
 		<h2>学生性别：{{ sex }}</h2>
-
 		<button @click="sendStudentlName">把学生名给App</button>
-
 	</div>
 </template>
 
@@ -21,8 +19,6 @@ export default {
 		sendStudentlName() {
 			//触发Student组件实例身上的atguigu事件
 			this.$emit('atguigu', this.name, 666, 888, 900)
-			// this.$emit('demo')
-			// this.$emit('click')
 		},
 	},
 }
