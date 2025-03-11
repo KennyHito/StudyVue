@@ -43,6 +43,9 @@ export default {
   components: {
     MyNavBar
   },
+  created() {
+    this.nav.title = this.$route.query.title;
+  },
   data() {
     return {
       nav: {
@@ -132,10 +135,10 @@ export default {
     }
   },
   beforeDestroy() {
-    console.log('页面即将销毁');
+
   },
   destroyed() {
-    console.log('页面已销毁');
+
   },
 }
 </script>

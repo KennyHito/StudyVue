@@ -29,6 +29,9 @@ export default {
     School,
     Student
   },
+  created() {
+    this.nav.title = this.$route.query.title;
+  },
   data() {
     return {
       nav: {
@@ -54,10 +57,10 @@ export default {
     },
   },
   beforeDestroy() {
-    console.log('SchoolOrStudent即将销毁了')
+
   },
   destroyed() {
-    console.log('SchoolOrStudent被销毁了')
+
   },
 }
 </script>

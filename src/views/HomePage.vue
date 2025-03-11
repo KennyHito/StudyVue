@@ -9,7 +9,7 @@
       <div v-for="(item, index) in vcArr" :key="index">
         <van-button class="button-box" color="linear-gradient(to right, #ff6034, #ee0834)"
           @click="onClickButton(index)">
-          跳转{{ item }}
+          {{ item.title }}
         </van-button>
       </div>
     </div>
@@ -33,32 +33,51 @@ export default {
         leftButtonText: "",
         rightButtonText: "地址"
       },
-      vcArr: ['TestOne', 'TestTwo', 'TestThree', 'TodoList', 'LocalStorage', 'SchoolOrStudent'],
+      vcArr: [
+        {
+          vc: 'TestPage',
+          title: '测试页面'
+        },
+        {
+          vc: 'TodoList',
+          title: '写一个Todo-List案例'
+        },
+        {
+          vc: 'LocalStorage',
+          title: '本地缓存功能'
+        },
+        {
+          vc: 'SchoolOrStudent',
+          title: '组件自定义事件'
+        },
+      ],
     }
   },
   methods: {
-    handleLeftClick(data) {
-      console.log('父组件接收到左侧按钮点击事件数据：', data);
+    handleLeftClick() {
+
     },
-    handleRightClick(data) {
-      console.log('父组件接收到右侧按钮点击事件数据：', data);
+    handleRightClick() {
       this.$router.push({
         path: '/addressPage'
       });
     },
     onClickButton(index) {
-      let page = this.vcArr[index];
-      console.log(index, page);
+      let item = this.vcArr[index];
+      console.log('点击了第' + index + '个按钮，按钮内容是：' + item.title);
       this.$router.push({
-        path: page
+        path: item.vc,
+        query: {
+          title: item.title
+        }
       });
     },
   },
   beforeDestroy() {
-    console.log('页面即将销毁');
+
   },
   destroyed() {
-    console.log('页面已销毁');
+
   },
 }
 </script>

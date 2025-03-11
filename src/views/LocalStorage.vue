@@ -4,6 +4,7 @@
     <!-- 子组件导航栏 -->
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
+
     <div class="container">
       <van-button class="button-box" color="linear-gradient(to right,#EB5E58,#F1D986)" @click="handleLocalStorage(1)">
         点击保存一个数据
@@ -30,6 +31,9 @@ export default {
   name: 'LocalStorage',
   components: {
     MyNavBar
+  },
+  created() {
+    this.nav.title = this.$route.query.title;
   },
   data() {
     return {
@@ -73,10 +77,10 @@ export default {
 
   },
   beforeDestroy() {
-    console.log('页面即将销毁');
+
   },
   destroyed() {
-    console.log('页面已销毁');
+
   },
 }
 </script>
