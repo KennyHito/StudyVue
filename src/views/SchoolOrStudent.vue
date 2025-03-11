@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       nav: {
-        title: "组件自定义事件",
+        title: "",
         leftButtonText: "",
         rightButtonText: ""
       },

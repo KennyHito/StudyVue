@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       nav: {
-        title: "本地存储",
+        title: "",
         leftButtonText: "返回",
         rightButtonText: ""
       },

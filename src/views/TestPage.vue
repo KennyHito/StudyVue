@@ -4,7 +4,7 @@
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
 
-    <div class="container">
+    <div class="container" :style="{ marginBottom: hasSafeArea ? '84px' : '50px' }">
       <!-- 子组件MoneyInput -->
       <van-button class="button-box" color="linear-gradient(to right,#EA5514,#EB6821,#EC7A2E,#ED8B3C,#EE9C4B)"
         @click="handleClick">
@@ -109,8 +109,15 @@
       <div class="img-box">
         <img alt="" src="https://img-xhpfm.xinhuaxmt.com/News/202412/105012024121700012391.gif">
       </div>
-
     </div>
+
+    <van-goods-action class="bottom-box">
+      <van-goods-action-icon icon="chat-o" text="客服" @click="onClickIcon(1)" />
+      <van-goods-action-icon icon="cart-o" text="购物车" @click="onClickIcon(2)" />
+      <van-goods-action-icon icon="shop-o" text="店铺" @click="onClickIcon(3)" />
+      <van-goods-action-button type="danger" text="立即购买" @click="onClickIcon(4)" />
+    </van-goods-action>
+
   </div>
 </template>
 
@@ -132,10 +139,13 @@ export default {
     this.nav.title = this.$route.query.title;
   },
   mounted() {
+
     this.studentName = "张三";
     this.studentAge = 18;
 
     this.noxxx = nanoid();
+
+    this.checkSafeArea();
     //启动定时器
     this.timer = setInterval(() => {
       this.timeCount++;
@@ -170,6 +180,7 @@ export default {
       arr: [1, 32, 45, 6, 3, 12, 29],
       pdfUrl: "https://testcbb.lczq.com/static/agreement/admin/20230322/9b3f470a-b106-4c64-bc5e-f08f538fb71b.PDF",
       pages: [],
+      hasSafeArea: false
     };
   },
   methods: {
@@ -224,6 +235,16 @@ export default {
         // PDF 文件的 URL
         // 在新窗口中打开 PDF 文件
         window.open(this.pdfUrl, '_blank');
+      }
+    },
+    checkSafeArea() {
+      // 检测是否为 iOS 设备
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        // 检测浏览器是否支持安全区域特性
+        this.hasSafeArea =
+          CSS.supports('padding-top: constant(safe-area-inset-top)') ||
+          CSS.supports('padding-top: env(safe-area-inset-top)');
       }
     }
   },

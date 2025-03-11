@@ -87,14 +87,17 @@ export default {
 .contiainer {
   padding: 10px;
   height: 100%;
-  display: flex; // 使用 flex 布局
-  flex-wrap: wrap; // 允许子元素换行
-  gap: 10px; // 设置按钮之间的间距
+  text-align: center;
+  // display: flex; // 使用 flex 布局
+  // flex-wrap: wrap; // 允许子元素换行
+  // gap: 10px; // 设置按钮之间的间距
 }
 
 .button-box {
+  width: 260px;
   height: 50px;
   border-radius: 25px;
   font-size: 18px;
+  margin-bottom: 15px;
 }
 </style>

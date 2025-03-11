@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       nav: {
-        title: "写个ToDo-List案例",
+        title: "",
         leftButtonText: "",
         rightButtonText: "清除缓存"
       },
