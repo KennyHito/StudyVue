@@ -14,7 +14,7 @@
 <script>
 
 export default {
-  name: 'MoneyInput',
+  name: 'ChildPage',
   // props第一种方式: 简单接受
   props: ['name', 'age', 'getChildMethod'],
 
