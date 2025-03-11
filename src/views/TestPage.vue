@@ -232,7 +232,6 @@ export default {
       } else if (type === 2) {
         this.arr.reverse();
       } else if (type === 3) {
-        // PDF 文件的 URL
         // 在新窗口中打开 PDF 文件
         window.open(this.pdfUrl, '_blank');
       }
