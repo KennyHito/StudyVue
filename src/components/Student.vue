@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style scoped lang='less'>
 .student {
 	background-color: pink;
 	padding: 5px;

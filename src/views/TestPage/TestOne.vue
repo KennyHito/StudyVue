@@ -116,7 +116,13 @@ export default {
         day: '2-digit'
       }).format(date);
     }
-  }
+  },
+  beforeDestroy() {
+    console.log('页面即将销毁');
+  },
+  destroyed() {
+    console.log('页面已销毁');
+  },
 };
 </script>
 

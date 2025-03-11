@@ -53,10 +53,16 @@ export default {
       console.log('App收到了学生名：', name, params)
     },
   },
+  beforeDestroy() {
+    console.log('SchoolOrStudent即将销毁了')
+  },
+  destroyed() {
+    console.log('SchoolOrStudent被销毁了')
+  },
 }
 </script>
 
-<style scoped>
+<style scoped lang='less'>
 .container {
   background-color: gray;
   padding: 5px;

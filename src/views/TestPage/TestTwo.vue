@@ -94,7 +94,13 @@ export default {
         window.open(this.pdfUrl, '_blank');
       }
     }
-  }
+  },
+  beforeDestroy() {
+    console.log('页面即将销毁');
+  },
+  destroyed() {
+    console.log('页面已销毁');
+  },
 };
 </script>
 

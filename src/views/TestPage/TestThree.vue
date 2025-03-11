@@ -13,7 +13,9 @@
       <hr />
       <input v-fbind:value="money">
       <hr />
-      <div>nanoid: {{ noxxx }}</div>
+      <div>nanoid用于获取唯一字符串,类似UUID: {{ noxxx }}</div>
+      <hr />
+      <p>我是定时器: {{ timeCount }}</p>
     </div>
 
     <van-goods-action class="bottom-box">
@@ -46,11 +48,17 @@ export default {
       },
       msg: "我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!我是h1标签内容!",
       money: 100,
-      noxxx: ''
+      noxxx: '',
+      timer: null,
+      timeCount: 0,
     }
   },
   mounted() {
     this.noxxx = nanoid();
+    //启动定时器
+    this.timer = setInterval(() => {
+      this.timeCount++;
+    }, 1000);
   },
   methods: {
     handleLeftClick() {
@@ -85,10 +93,14 @@ export default {
 
   },
   beforeDestroy() {
-    console.log('beforeDestroy');
+    console.log('页面即将销毁');
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+    }
   },
   destroyed() {
-    console.log('destroyed');
+    console.log('页面已销毁');
   },
 }
 </script>

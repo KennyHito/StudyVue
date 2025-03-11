@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='less'>
 .school {
 	background-color: skyblue;
 	padding: 5px;
