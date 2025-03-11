@@ -50,7 +50,7 @@ export default {
         leftButtonText: "",
         rightButtonText: ""
       },
-      dataArr: [],
+      dataArr: JSON.parse(localStorage.getItem('todos')) || [],
       doneCount: 0,
       inputValue: '',
       selectAllChecked: false
@@ -120,6 +120,14 @@ export default {
         this.selectAllChecked = false;
       }
     },
+  },
+  watch: {
+    dataArr: {
+      deep: true,
+      handler(newValue, oldValue) {
+        window.localStorage.setItem('todos', JSON.stringify(newValue));
+      }
+    }
   },
   beforeDestroy() {
     console.log('destroy');
