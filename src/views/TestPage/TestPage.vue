@@ -101,6 +101,15 @@
 
       <hr />
 
+      <div>
+        <button @click="isShow = !isShow">动画显示/隐藏</button>
+        <transition name="hello" appear>
+          <h2 v-show="isShow">你好啊！</h2>
+        </transition>
+      </div>
+
+      <hr />
+
       <!-- 也可以使用绑定的方式 -->
       <div :style="{ display: 'block', fontSize: '20px' }">👇🏻点击按钮显示或隐藏👇🏻:</div>
       <button @click="toggleVisibility"
@@ -183,7 +192,8 @@ export default {
       arr: [1, 32, 45, 6, 3, 12, 29],
       pdfUrl: "https://testcbb.lczq.com/static/agreement/admin/20230322/9b3f470a-b106-4c64-bc5e-f08f538fb71b.PDF",
       pages: [],
-      hasSafeArea: false
+      hasSafeArea: false,
+      isShow: false
     };
   },
   methods: {
@@ -334,5 +344,27 @@ export default {
   background-color: cadetblue;
   border-radius: 20px;
   color: white;
+}
+
+h2 {
+  background-color: orange;
+}
+
+.hello-enter-active {
+  animation: atguigu 0.5s linear;
+}
+
+.hello-leave-active {
+  animation: atguigu 0.5s linear reverse;
+}
+
+@keyframes atguigu {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
 }
 </style>
