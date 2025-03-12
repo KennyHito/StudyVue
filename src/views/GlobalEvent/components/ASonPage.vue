@@ -2,7 +2,7 @@
 <template>
   <div class="div-box">
     <span>{{ name }}</span>
-    <button class="btn-box" @click="handleGive">我要给我弟弟10元钱</button>
+    <button class="btn-box" @click="handleGive">我要给弟弟10元钱</button>
   </div>
 </template>
 
@@ -15,13 +15,18 @@ export default {
   name: 'ASonPage',
   data() {
     return {
-      name: "我是老大,我叫张哈哈"
+      name: "我是哥哥"
     }
   },
   methods: {
     handleGive() {
       this.$bus.$emit('giveMoney', 10);
     }
+  },
+  mounted() {
+    this.$bus.$on('thankBrother', () => {
+      this.$toast('收到了弟弟的感谢!');
+    })
   },
 }
 </script>

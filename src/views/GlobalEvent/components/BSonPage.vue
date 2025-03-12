@@ -1,7 +1,11 @@
 <!-- 结构 -->
 <template>
   <div class="div-box">
-    <span>{{ name }}</span>
+    <span class="name-style">{{ name }}</span>
+    <div class="money-style" v-if="money">
+      <span>{{ money }}</span>
+      <button class="btn-box" @click="handleThank">谢谢哥哥</button>
+    </div>
   </div>
 </template>
 
@@ -14,12 +18,18 @@ export default {
   name: 'BSonPage',
   data() {
     return {
-      name: "我是老二,我叫张嘻嘻"
+      name: "我是弟弟",
+      money: ""
+    }
+  },
+  methods: {
+    handleThank() {
+      this.$bus.$emit('thankBrother');
     }
   },
   mounted() {
     this.$bus.$on('giveMoney', (data) => {
-      this.name = '我收到了大哥给我的' + data + '元钱!';
+      this.money = '我收到了哥哥给我的' + data + '元钱!';
     })
   },
   beforeDestroy() {
@@ -39,7 +49,33 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   border-radius: 10px;
+  flex-direction: column;
+
+  .name-style {
+    color: white;
+  }
+
+  .money-style {
+    margin-top: 10px;
+    color: red;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    .btn-box {
+      width: 100px;
+      margin-top: 20px;
+      height: 40px;
+      min-height: 40px;
+      background-color: yellow;
+      color: red;
+      border-radius: 10px;
+      border: 2 black;
+    }
+  }
+
 }
 </style>
