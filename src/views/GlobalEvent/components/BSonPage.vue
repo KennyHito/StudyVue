@@ -76,7 +76,7 @@ export default {
 
 
     .btn-box {
-      width: 100px;
+      width: 120px;
       margin-top: 20px;
       height: 40px;
       min-height: 40px;
