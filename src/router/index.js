@@ -80,6 +80,14 @@ const router = new Router({
         title: "PubSubPage"
       },
     },
+    {
+      path: "/AnimationPage",
+      name: "AnimationPage",
+      component: () => import("../views/AnimationPage/AnimationPage"),
+      meta: {
+        title: "AnimationPage"
+      },
+    },
   ]
 });
 

@@ -62,6 +62,10 @@ export default {
           vc: 'PubSubPage',
           title: '组件传递-消息订阅与发布'
         },
+        {
+          vc: 'AnimationPage',
+          title: '动画效果'
+        },
       ],
     }
   },

@@ -3,7 +3,7 @@
   <div>
     <!-- 子组件导航栏 -->
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
-      :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" :isShowLeftArrow="true" />
+      :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
     <div class="container">
       绿色区域是父组件,那两个都是子组件,实现的内容是两个兄弟之间、爷孙之间或者更多层组件之间的数据传递的功能。
       <ASonPage />

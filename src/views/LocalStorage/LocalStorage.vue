@@ -39,7 +39,7 @@ export default {
     return {
       nav: {
         title: "",
-        leftButtonText: "返回",
+        leftButtonText: "",
         rightButtonText: ""
       },
 

@@ -2,7 +2,7 @@
   <div class="app">
     <!-- 子组件导航栏 -->
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
-      :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" :isShowLeftArrow="true" />
+      :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
 
     <div class="container">
       <h1>{{ msg }}</h1>
