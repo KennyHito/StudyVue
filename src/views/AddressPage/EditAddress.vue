@@ -17,6 +17,7 @@ import { Toast } from 'vant';
 import { areaList } from '@vant/area-data';
 import MyNavBar from '@/components/MyNavBar.vue';
 export default {
+  name: "EditAddress",
   components: {
     MyNavBar
   },

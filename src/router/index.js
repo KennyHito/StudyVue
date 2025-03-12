@@ -17,6 +17,14 @@ const router = new Router({
       },
     },
     {
+      path: "/TestPage",
+      name: "TestPage",
+      component: () => import("../views/TestPage/TestPage"),
+      meta: {
+        title: "TestPage"
+      },
+    },
+    {
       path: "/AddressPage",
       name: "AddressPage",
       component: () => import("../views/AddressPage/AddressPage"),
@@ -33,17 +41,9 @@ const router = new Router({
       },
     },
     {
-      path: "/TestPage",
-      name: "TestPage",
-      component: () => import("../views/TestPage"),
-      meta: {
-        title: "TestPage"
-      },
-    },
-    {
       path: "/TodoList",
       name: "TodoList",
-      component: () => import("../views/TodoList"),
+      component: () => import("../views/TodoList/TodoList"),
       meta: {
         title: "TodoList"
       },
@@ -51,7 +51,7 @@ const router = new Router({
     {
       path: "/LocalStorage",
       name: "LocalStorage",
-      component: () => import("../views/LocalStorage"),
+      component: () => import("../views/LocalStorage/LocalStorage"),
       meta: {
         title: "LocalStorage"
       },
@@ -59,7 +59,7 @@ const router = new Router({
     {
       path: "/SchoolOrStudent",
       name: "SchoolOrStudent",
-      component: () => import("../views/SchoolOrStudent"),
+      component: () => import("../views/SchoolOrStudent/SchoolOrStudent"),
       meta: {
         title: "SchoolOrStudent"
       },

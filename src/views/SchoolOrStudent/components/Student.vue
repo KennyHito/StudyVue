@@ -2,7 +2,7 @@
 	<div class="student">
 		<h2>学生姓名：{{ name }}</h2>
 		<h2>学生性别：{{ sex }}</h2>
-		<button @click="sendStudentlName">把学生名给App</button>
+		<button @click="sendStudentlName">把学生名给父组件</button>
 	</div>
 </template>
 

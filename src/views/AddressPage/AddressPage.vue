@@ -15,6 +15,7 @@
 import MyNavBar from '@/components/MyNavBar.vue';
 
 export default {
+  name: "AddressPage",
   components: {
     MyNavBar
   },

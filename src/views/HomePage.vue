@@ -31,12 +31,16 @@ export default {
       nav: {
         title: "我是首页",
         leftButtonText: "",
-        rightButtonText: "地址"
+        rightButtonText: ""
       },
       vcArr: [
         {
           vc: 'TestPage',
           title: '测试页面'
+        },
+        {
+          vc: 'AddressPage',
+          title: '地址列表'
         },
         {
           vc: 'TodoList',
@@ -48,15 +52,15 @@ export default {
         },
         {
           vc: 'SchoolOrStudent',
-          title: '组件自定义事件'
+          title: '组件传递-自定义事件'
         },
         {
           vc: 'GlobalEvent',
-          title: '全局事件总线$bus'
+          title: '组件传递-全局事件$bus'
         },
         {
           vc: 'PubSubPage',
-          title: '消息订阅与发布'
+          title: '组件传递-消息订阅与发布'
         },
       ],
     }
@@ -66,9 +70,7 @@ export default {
 
     },
     handleRightClick() {
-      this.$router.push({
-        path: '/addressPage'
-      });
+
     },
     onClickButton(index) {
       let item = this.vcArr[index];
@@ -102,7 +104,7 @@ export default {
 }
 
 .button-box {
-  width: 260px;
+  width: 300px;
   height: 50px;
   border-radius: 25px;
   font-size: 18px;

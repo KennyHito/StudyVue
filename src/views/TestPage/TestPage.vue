@@ -132,7 +132,7 @@
 // 引入其他组件
 import ChildPage from '@/components/ChildPage.vue'
 import MyNavBar from '@/components/MyNavBar.vue';
-import { common } from '../mixin/common'
+import { common } from '../../mixin/common'
 import { nanoid } from 'nanoid';
 
 export default {

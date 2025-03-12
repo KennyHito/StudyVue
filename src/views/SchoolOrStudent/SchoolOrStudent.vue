@@ -19,8 +19,8 @@
 <script>
 // 引入其他组件
 import MyNavBar from '@/components/MyNavBar.vue';
-import Student from '@/components/Student'
-import School from '@/components/School'
+import Student from './components/Student'
+import School from './components/School'
 
 export default {
   name: 'SchoolOrStudent',
@@ -50,10 +50,10 @@ export default {
 
     },
     getSchoolName(name) {
-      console.log('App收到了学校名：', name)
+      console.log('父组件收到了学校名：', name)
     },
     getStudentName(name, ...params) {
-      console.log('App收到了学生名：', name, params)
+      console.log('父组件收到了学生名：', name, params)
     },
   },
   beforeDestroy() {
