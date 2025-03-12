@@ -25,12 +25,21 @@ export default {
   methods: {
     handleThank() {
       this.$bus.$emit('thankBrother');
+    },
+    receiveMoneyMethod(data) {
+      console.log("receiveMoneyMethod");
+      this.money = '我收到了哥哥给我的' + data + '元钱!';
     }
   },
   mounted() {
-    this.$bus.$on('giveMoney', (data) => {
-      this.money = '我收到了哥哥给我的' + data + '元钱!';
-    })
+    //写法一
+    // this.$bus.$on('giveMoney', (data) => {
+    //   console.log("箭头函数回调接收!");
+    //   this.money = '我收到了哥哥给我的' + data + '元钱!';
+    // })
+
+    //写法二
+    this.$bus.$on('giveMoney', this.receiveMoneyMethod);
   },
   beforeDestroy() {
     // 用完全局事件最好用完就解绑(哪个组件写$on就在哪个组件写$off)
