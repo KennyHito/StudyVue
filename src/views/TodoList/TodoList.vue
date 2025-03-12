@@ -17,7 +17,12 @@
         <div class="data-style-box">
           <van-checkbox v-model="item.checked" checked-color="#ee0a24" shape="square" class="checkbox-style"
             @click="checkBoxClick">{{ item.content }}</van-checkbox>
-          <van-button type="danger" class="button-style" v-if="item.checked" @click="deleteItem(index)">删除</van-button>
+          <div>
+            <van-button type="danger" class="edit-button-style" v-if="item.checked"
+              @click="editItem(index)">编辑</van-button>
+            <van-button type="danger" class="del-button-style" v-if="item.checked"
+              @click="deleteItem(index)">删除</van-button>
+          </div>
         </div>
       </div>
 
@@ -30,6 +35,10 @@
         <van-button type="danger" class="button-style" @click="deleteAllDone">删除已完成任务</van-button>
       </div>
     </div>
+
+    <van-dialog v-model="showEditView" title="编辑todo" show-cancel-button @confirm="onConfirm">
+      <van-field v-model="editValue" placeholder="请输入编辑的todo" class="input-style" clearable />
+    </van-dialog>
   </div>
 </template>
 
@@ -56,7 +65,10 @@ export default {
       dataArr: JSON.parse(localStorage.getItem('todos')) || [],
       doneCount: 0,
       inputValue: '',
-      selectAllChecked: false
+      selectAllChecked: false,
+      showEditView: false,
+      editValue: "",
+      editIndex: 0
     }
   },
   methods: {
@@ -84,6 +96,16 @@ export default {
     },
     checkBoxClick() {
       this.updateDoneCount();
+    },
+    //编辑某一条
+    editItem(index) {
+      this.editIndex = index;
+      this.editValue = this.dataArr[index].content;
+      this.showEditView = true;
+    },
+    onConfirm() {
+      console.log("confirm")
+      this.dataArr[this.editIndex].content = this.editValue;
     },
     // 删除某一条
     deleteItem(index) {
@@ -173,7 +195,17 @@ export default {
       font-weight: 500;
     }
 
-    .button-style {
+    .edit-button-style {
+      background-color: rgb(137, 169, 169);
+      border: 0;
+      font-size: 18px;
+      height: 22px;
+      line-height: 22px;
+      border-radius: 10px;
+      margin-right: 5px;
+    }
+
+    .del-button-style {
       font-size: 18px;
       height: 22px;
       line-height: 22px;
