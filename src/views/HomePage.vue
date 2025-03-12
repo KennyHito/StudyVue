@@ -53,7 +53,11 @@ export default {
         {
           vc: 'GlobalEvent',
           title: '全局事件总线$bus'
-        }
+        },
+        {
+          vc: 'PubSubPage',
+          title: '消息订阅与发布'
+        },
       ],
     }
   },

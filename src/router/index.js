@@ -72,6 +72,14 @@ const router = new Router({
         title: "GlobalEvent"
       },
     },
+    {
+      path: "/PubSubPage",
+      name: "PubSubPage",
+      component: () => import("../views/PubSubPage/PubSubPage"),
+      meta: {
+        title: "PubSubPage"
+      },
+    },
   ]
 });
 
