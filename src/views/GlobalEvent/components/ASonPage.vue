@@ -29,6 +29,7 @@ export default {
     })
   },
   beforeDestroy() {
+    // 用完全局事件最好用完就解绑(哪个组件写$on就在哪个组件写$off)
     this.$bus.$off('thankBrother');
   }
 }
