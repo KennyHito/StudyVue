@@ -28,6 +28,9 @@ export default {
       this.$toast('收到了弟弟的感谢!');
     })
   },
+  beforeDestroy() {
+    this.$bus.$off('thankBrother');
+  }
 }
 </script>
 
