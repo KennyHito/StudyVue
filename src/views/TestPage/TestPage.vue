@@ -328,7 +328,7 @@ export default {
     color: yellow;
     border-radius: 15px;
     font-size: 20px;
-    margin: 5px 0;
+    margin: 5px;
   }
 
   .text-common-style {
