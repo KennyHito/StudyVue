@@ -270,6 +270,7 @@ export default {
     }
   },
   beforeDestroy() {
+    console.log('⚠️测试打印的内容:--->', 'beforeDestroy');
     //清除定时器
     clearInterval(this.timer);
   },
