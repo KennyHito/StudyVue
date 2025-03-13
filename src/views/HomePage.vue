@@ -8,7 +8,7 @@
     <div class="contiainer">
       <div v-for="(item, index) in vcArr" :key="index">
         <van-button class="button-box" color="linear-gradient(to right, #ff6034, #ee0834)"
-          @click="onClickButton(index)">
+          @click="handleVCBtnClick(index)">
           {{ item.title }}
         </van-button>
       </div>
@@ -76,7 +76,7 @@ export default {
     handleRightClick() {
 
     },
-    onClickButton(index) {
+    handleVCBtnClick(index) {
       let item = this.vcArr[index];
       console.log('点击了第' + (index + 1) + '个按钮，按钮内容是：' + item.title);
       this.$router.push({
@@ -86,13 +86,7 @@ export default {
         }
       });
     },
-  },
-  beforeDestroy() {
-
-  },
-  destroyed() {
-
-  },
+  }
 }
 </script>
 
