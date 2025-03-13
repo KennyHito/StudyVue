@@ -18,6 +18,17 @@
 
       <hr />
 
+      <div>
+        <button class="btn-common-style" @click="handleClick(13)">请求学生接口</button>
+        <p class="text-common-style" v-if="localStudentApiData.length > 0">{{ localStudentApiData }}</p>
+      </div>
+      <div>
+        <button class="btn-common-style" @click="handleClick(14)">请求汽车接口</button>
+        <p class="text-common-style" v-if="localCarApiData.length > 0">{{ localCarApiData }}</p>
+      </div>
+
+      <hr />
+
       <div
         style="font-size: 20px;margin-left: 0px;margin-right: 0px;background-color: burlywood;text-align: center;border-radius: 10px;">
         字符串转日期:{{ formattedDate }}
@@ -133,6 +144,7 @@ import ChildPage from './components/ChildPage.vue'
 import MyNavBar from '@/components/MyNavBar.vue';
 import { common } from '../../mixin/common'
 import { nanoid } from 'nanoid';
+import http from '../../config/httpService.js'
 
 export default {
   name: "TestPage",
@@ -179,6 +191,8 @@ export default {
       tempArr: [1, 2, 3, 4, 5, 6],
       pdfUrl: "https://testcbb.lczq.com/static/agreement/admin/20230322/9b3f470a-b106-4c64-bc5e-f08f538fb71b.PDF",
       hasSafeArea: false,
+      localStudentApiData: [],
+      localCarApiData: []
     };
   },
   methods: {
@@ -227,6 +241,22 @@ export default {
       } else if (type === 12) {
         // 隐藏or显示
         this.isHidden = !this.isHidden;
+      } else if (type === 13) {
+        // 本地服务器学生接口请求
+        http.get('http://localhost:8080/xs/students').then(res => {
+          console.log(res.data);
+          this.localStudentApiData = res.data;
+        }).catch(err => {
+          console.log(err.message);
+        });
+      } else if (type === 14) {
+        // 本地服务器汽车接口请求
+        http.get('http://localhost:8080/qc/cars').then(res => {
+          console.log(res.data);
+          this.localCarApiData = res.data;
+        }).catch(err => {
+          console.log(err.message);
+        });
       } else if (type === 996) {
         this.$toast('我是客服');
       } else if (type === 997) {
