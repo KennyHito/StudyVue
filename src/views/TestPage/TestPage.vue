@@ -6,12 +6,10 @@
 
     <div class="container" :style="{ marginBottom: hasSafeArea ? '84px' : '50px' }">
 
-      <van-button class="button-box" color="linear-gradient(to right,#EA5514,#EB6821,#EC7A2E,#ED8B3C,#EE9C4B)"
-        @click="handleClick(1)">
+      <van-button class="btn-common-style" @click="handleClick(1)">
         父传子(props)
       </van-button>
-      <van-button class="button-box" color="linear-gradient(to right,#EA5514,#EB6821,#EC7A2E,#ED8B3C,#EE9C4B)"
-        @click="handleClick(2)">
+      <van-button class="btn-common-style" @click="handleClick(2)">
         父触发子方法(ref)
       </van-button>
       <!-- ChildPage -->
@@ -26,12 +24,12 @@
       </div>
 
       <div
-        :style="{ marginTop: '10px', fontSize: '15px', height: '20px', lineHeight: '20px', backgroundColor: '#3EF322', textAlign: 'center', borderRadius: '10px' }">
+        :style="{ marginTop: '10px', fontSize: '20px', height: '20px', lineHeight: '20px', backgroundColor: '#3EF322', textAlign: 'center', borderRadius: '10px' }">
         全局配置属性: {{ $apiBaseUrl }}</div>
 
       <hr />
 
-      <div>
+      <div class="text-common-style">
         <van-radio-group class="radio-group-style" v-model="selectedOption">
           请选择性别：
           <van-radio name="1">男</van-radio>
@@ -41,82 +39,82 @@
 
       <hr />
 
-      <van-button class="button-box"
-        color="linear-gradient(to right, #F1C78E,#BBD2CE,#F3B89E,#EB5E58,#F1D986,#E8C9AC,#CFA8D3,#E5C89E)"
-        @click="showMsg">
-        点击获取通知
-      </van-button>
+      <van-button class="btn-common-style" @click="showMsg"> 通过mixin混入获取通知 </van-button>
 
       <hr />
 
-      <div>👇🏻 字符串截取: 👇🏻</div>
-      <div class="student-box"> {{ student.about | mySplice }}</div>
+      <div class="text-common-style">👇🏻 字符串截取: 👇🏻</div>
+      <div class="text-common-style"> {{ student.about | mySplice }}</div>
 
       <hr />
 
-      <div class="text">插件的方式: x的值为:{{ x }},y的值为:{{ y }}</div>
+      <div class="text-common-style">插件的方式: x的值为:{{ x }},y的值为:{{ y }}</div>
 
       <hr />
 
-      <div>👇🏻 进入页面输入框直接成为焦点: 👇🏻</div>
+      <div class="text-common-style">👇🏻 进入页面输入框直接成为焦点: 👇🏻</div>
       <input v-fbind:value="student.name">
 
       <hr />
 
-      <div>👇🏻 nanoid用于获取唯一字符串,类似UUID: 👇🏻</div>
+      <div class="text-common-style">👇🏻 nanoid用于获取唯一字符串,类似UUID: 👇🏻</div>
       <div>{{ getNanoid }}</div>
 
       <hr />
 
-      <p>⚠️这里是定时器,记得在生命周期beforeDestroy方法中清除定时器: {{ timeCount }}</p>
+      <p class="text-common-style">⚠️这里是定时器,记得在生命周期beforeDestroy方法中清除定时器: {{ timeCount }}</p>
 
       <hr />
 
-      <div style="display: inline; background-color: lightgreen;">
+      <div style="display: inline; background-color: lightgreen;font-size: 20px;">
         这个 div 现在是行内元素
       </div>
-      <div style="display: inline; background-color: lightyellow;">
+      <div style="display: inline; background-color: lightyellow;font-size: 20px;">
         另一个行内元素
       </div>
 
       <hr />
 
-      <div>数组内容为:{{ tempArr }}</div>
-      <div class="button-group">
-        <button class="button-style" @click="handleClick(3)">数组(增操作)</button>
-        <button class="button-style" @click="handleClick(4)">数组(倒序)</button>
+      <div class="text-common-style">数组内容为:{{ tempArr }}</div>
+      <div>
+        <button class="btn-common-style" @click="handleClick(3)">数组push</button>
+        <button class="btn-common-style" @click="handleClick(4)">数组pop</button>
+        <button class="btn-common-style" @click="handleClick(5)">数组unshift</button>
+        <button class="btn-common-style" @click="handleClick(6)">数组shift</button>
+        <button class="btn-common-style" @click="handleClick(7)">数组reverse</button>
+        <button class="btn-common-style" @click="handleClick(8)">数组splice</button>
+        <button class="btn-common-style" @click="handleClick(9)">数组filter(保留偶数)</button>
       </div>
 
       <hr />
 
-      <div style="text-align: center;">
-        <button @click="handleClick(5)" style="border-radius: 10px;width: 250px;">新窗口打开在线PDF</button>
-      </div>
+      <button class="btn-common-style2" @click="handleClick(10)">新窗口打开在线PDF</button>
 
       <hr />
 
-      <div class="button-group">
-        <button class="button-style" @click="handleClick(6)">点我获取h1的内容</button>
+      <div>
+        <button class="btn-common-style" @click="handleClick(11)">点我获取h1的内容</button>
         <h1 v-text="msg" ref="h1Title" style="font-size: 18px;"></h1>
       </div>
 
       <hr />
 
-      <!-- 也可以使用绑定的方式 -->
-      <div :style="{ display: 'block', fontSize: '20px' }">👇🏻点击按钮显示或隐藏👇🏻:</div>
-      <button @click="handleClick(7)"
-        :style="{ backgroundColor: 'red', color: 'yellow', borderRadius: '15px', height: '30px', lineHeight: '20px' }">切换可见性</button>
-
-      <div :style="{ display: isHidden ? 'none' : 'block', color: 'black', fontSize: '20px' }">
-        2016年3月，习近平总书记参加十二届全国人大四次会议黑龙江代表团审议时首次提出：“绿水青山是金山银山，黑龙江的冰天雪地也是金山银山。”从“绿水青山就是金山银山”到“冰天雪地也是金山银山”，一条因地制宜把资源优势变发展优势的可持续发展之路，已然明晰。今年春节前后，习近平总书记20天内两赴东北，足迹踏遍东北三省。在辽宁，他说，“越是发展任务重，越要重视生态环境保护，推动经济社会发展全面绿色转型”；在哈尔滨亚冬会开幕式欢迎宴会上，他说，“来到哈尔滨，我们真切感受到‘冰天雪地也是金山银山’，冰雪文化和冰雪经济正在成为哈尔滨高质量发展的新动能和对外开放的新纽带”；
-      </div>
+      <div class="text-common-style">👇🏻点击按钮显示或隐藏👇🏻:</div>
+      <button @click="handleClick(12)" class="btn-common-style2">切换可见性</button>
+      <p class="text-common-style" v-show="!isHidden" :style="{ backgroundColor: '#F5F5F5' }">
+        绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山,绿水青山是金山银山。
+      </p>
 
       <hr />
-      <p class="text-box" v-html="news"></p>
 
       <div class="img-box">
         <img alt="" src="https://img-xhpfm.xinhuaxmt.com/News/202412/105012024121700012391.gif">
       </div>
+
+      <hr />
+
+      <p class="text-common-style" v-html="news"></p>
+
     </div>
 
     <van-goods-action>
@@ -191,6 +189,7 @@ export default {
       this.$toast('啊啊啊');
     },
     handleClick(type) {
+      console.log(type);
       if (type === 1) {
         // 父传子
         this.studentName = "张三";
@@ -199,16 +198,33 @@ export default {
         // 父触发子方法
         this.$refs.showUserNameRef.showUserName();
       } else if (type === 3) {
+        // 数组push
         this.tempArr.push(Math.round(Math.random() * 100));
       } else if (type === 4) {
-        this.tempArr.reverse();
+        // 数组pop
+        this.tempArr.pop();
       } else if (type === 5) {
+        // 数组unshift
+        this.tempArr.unshift(Math.round(Math.random() * 100));
+      } else if (type === 6) {
+        // 数组shift
+        this.tempArr.shift();
+      } else if (type === 7) {
+        // 数组reverse
+        this.tempArr.reverse();
+      } else if (type === 8) {
+        // 数组splice
+        this.tempArr.splice(0, 1, Math.round(Math.random() * 100));
+      } else if (type === 9) {
+        // 数组filter
+        this.tempArr = this.tempArr.filter(item => item % 2 === 0);
+      } else if (type === 10) {
         // 在新窗口中打开 PDF 文件
         window.open(this.pdfUrl, '_blank');
-      } else if (type === 6) {
+      } else if (type === 11) {
         // 获取h1标签的内容
         this.$toast(this.$refs.h1Title.innerHTML);
-      } else if (type === 7) {
+      } else if (type === 12) {
         // 隐藏or显示
         this.isHidden = !this.isHidden;
       } else if (type === 996) {
@@ -262,52 +278,41 @@ export default {
 
 <style scoped lang='less'>
 .container {
-  text-align: left;
   padding: 10px;
-  font-size: 18px;
-}
 
-.radio-group-style {
-  display: flex;
-  margin-top: 10px;
-}
+  .btn-common-style {
+    padding: 0 10px;
+    margin: 5px;
+    height: 40px;
+    min-height: 40px;
+    background-color: rgb(255, 4, 4);
+    border: 2px solid rgb(2, 2, 2);
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+  }
 
-.button-box {
-  // width: 200px;
-  height: 50px;
-  border-radius: 25px;
-  font-size: 18px;
-  margin: 5px;
-}
+  .btn-common-style2 {
+    background-color: red;
+    color: yellow;
+    border-radius: 15px;
+    font-size: 20px;
+    margin: 5px 0;
+  }
 
-.text-box {
-  font-size: 20px;
-}
+  .text-common-style {
+    font-size: 20px;
+    font-weight: 450;
+  }
 
-.img-box {
-  display: grid;
-  place-items: center;
-}
+  .radio-group-style {
+    display: flex;
+    margin-top: 10px;
+  }
 
-.student-box {
-  font-size: 20px;
-  color: orchid;
-}
-
-.button-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-}
-
-.button-style {
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 10px;
-  height: 40px;
-  min-height: 40px;
-  background-color: cadetblue;
-  border-radius: 20px;
-  color: white;
+  .img-box {
+    display: grid;
+    place-items: center;
+  }
 }
 </style>
