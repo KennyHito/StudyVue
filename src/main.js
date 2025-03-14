@@ -59,7 +59,8 @@ import {
 	AddressList,
 	AddressEdit,
 	Area,
-	Toast
+	Toast,
+	Empty
 } from 'vant';
 
 Vue.use(Button);
@@ -108,7 +109,7 @@ Vue.use(AddressList);
 Vue.use(AddressEdit);
 Vue.use(Area);
 Vue.use(Toast);
-
+Vue.use(Empty);
 Vue.use(plugin);
 
 // 阻止 dblclick 事件来禁用双击放大

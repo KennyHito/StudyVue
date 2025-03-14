@@ -66,6 +66,10 @@ export default {
           vc: 'AnimationPage',
           title: '动画效果'
         },
+        {
+          vc: 'SearchGithubPage',
+          title: '搜索GitHub上用户'
+        },
       ],
     }
   },

@@ -88,6 +88,14 @@ const router = new Router({
         title: "AnimationPage"
       },
     },
+    {
+      path: "/SearchGithubPage",
+      name: "SearchGithubPage",
+      component: () => import("../views/SearchGithubPage/SearchGithubPage"),
+      meta: {
+        title: "SearchGithubPage"
+      },
+    },
   ]
 });
 
