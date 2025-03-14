@@ -43,6 +43,9 @@ export default {
         }
       })
     }
+  },
+  beforeDestroy() {
+    this.$bus.$off('clearSearch');
   }
 }
 </script>

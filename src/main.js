@@ -60,7 +60,8 @@ import {
 	AddressEdit,
 	Area,
 	Toast,
-	Empty
+	Empty,
+	ImagePreview
 } from 'vant';
 
 Vue.use(Button);
@@ -110,6 +111,7 @@ Vue.use(AddressEdit);
 Vue.use(Area);
 Vue.use(Toast);
 Vue.use(Empty);
+Vue.use(ImagePreview);
 Vue.use(plugin);
 
 // 阻止 dblclick 事件来禁用双击放大

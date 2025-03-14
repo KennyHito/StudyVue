@@ -1,12 +1,16 @@
 <!-- 结构 -->
 <template>
   <div>
-    <!-- <van-loadmore :status="loadmoreStatus" :finished-text="finishedText" @loadmore="onLoadmore"> -->
     <van-grid :column-num="3">
-      <van-grid-item v-for="item in items" :key="item.id" :icon="item.avatar_url" :text="item.login" />
+      <van-grid-item v-for="item in items" :key="item.id" :icon="item.avatar_url" :text="item.login"
+        @click="handleClick(item)" />
     </van-grid>
+
     <van-empty v-show="items.length <= 0" description="暂无数据" />
-    <!-- </van-loadmore> -->
+
+    <van-image-preview v-model="isShowBigPic" :images="showImages" @change="onChange" :startPosition="index">
+      <template v-slot:index>{{ items[index].login }}</template>
+    </van-image-preview>
   </div>
 </template>
 
@@ -20,20 +24,34 @@ export default {
   data() {
     return {
       items: [],
-      loadmoreStatus: 'loading', // loadmore 组件的状态，初始为加载中
-      finishedText: '没有更多数据了' // 加载完成后的提示文本
+      isShowBigPic: false,
+      showImages: [],
+      index: 0,
     }
   },
   mounted() {
     this.$bus.$on('getUserInfo', (items) => {
+      items.forEach((item) => {
+        this.showImages.push(item.avatar_url);
+      });
       this.items = items;
     });
     this.$bus.$on('clearSearch', () => {
       this.items = [];
     });
   },
+  methods: {
+    handleClick(item) {
+      this.isShowBigPic = true;
+      this.index = this.showImages.indexOf(item.avatar_url);
+    },
+    onChange(index) {
+      this.index = index;
+    },
+  },
   beforeDestroy() {
     this.$bus.$off('getUserInfo');
+    this.$bus.$off('clearSearch');
   }
 }
 </script>
