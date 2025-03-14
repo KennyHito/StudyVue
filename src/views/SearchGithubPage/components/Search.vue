@@ -32,12 +32,13 @@ export default {
         this.$toast('请输入用户名');
         return;
       }
+      this.$bus.$emit('getUserInfo', JSON.stringify({ isLoading: true, items: [] }));
       http.get('https://api.github.com/search/users?q=' + this.username).then(res => {
         if (res.status === 200) {
           if (res.data.total_count === 0) {
             this.$toast("暂无数据");
           }
-          this.$bus.$emit('getUserInfo', res.data.items);
+          this.$bus.$emit('getUserInfo', JSON.stringify({ isLoading: false, items: res.data.items }));
         } else {
           this.$toast(res.statusText);
         }
