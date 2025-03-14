@@ -29,6 +29,20 @@
 
       <hr />
 
+      <div class="text-common-style">👇🏻 当前日期和时间: 👇🏻</div>
+      <div class="text-common-style" v-show="nowDateTime">{{ nowDateTime }}</div>
+
+      <hr />
+
+      <div class="text-common-style">👇🏻 nanoid用于获取唯一字符串,类似UUID: 👇🏻</div>
+      <div class="text-common-style">{{ getNanoid }}</div>
+
+      <hr />
+
+      <p class="text-common-style">⚠️这里是定时器,记得在生命周期beforeDestroy方法中清除定时器: {{ timeCount }}</p>
+
+      <hr />
+
       <div
         style="font-size: 20px;margin-left: 0px;margin-right: 0px;background-color: burlywood;text-align: center;border-radius: 10px;">
         字符串转日期:{{ formattedDate }}
@@ -36,7 +50,8 @@
 
       <div
         :style="{ marginTop: '10px', fontSize: '20px', height: '20px', lineHeight: '20px', backgroundColor: '#3EF322', textAlign: 'center', borderRadius: '10px' }">
-        全局配置属性: {{ $apiBaseUrl }}</div>
+        全局配置属性: {{ $apiBaseUrl }}
+      </div>
 
       <hr />
 
@@ -65,15 +80,6 @@
 
       <div class="text-common-style">👇🏻 进入页面输入框直接成为焦点: 👇🏻</div>
       <input v-fbind:value="student.name">
-
-      <hr />
-
-      <div class="text-common-style">👇🏻 nanoid用于获取唯一字符串,类似UUID: 👇🏻</div>
-      <div>{{ getNanoid }}</div>
-
-      <hr />
-
-      <p class="text-common-style">⚠️这里是定时器,记得在生命周期beforeDestroy方法中清除定时器: {{ timeCount }}</p>
 
       <hr />
 
@@ -145,6 +151,7 @@ import MyNavBar from '@/components/MyNavBar.vue';
 import { common } from '../../mixin/common'
 import { nanoid } from 'nanoid';
 import http from '../../config/httpService.js'
+import dayjs from 'dayjs';
 
 export default {
   name: "TestPage",
@@ -164,6 +171,7 @@ export default {
     this.timer = setInterval(() => {
       console.log('timer')
       this.timeCount++;
+      this.nowDateTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
     }, 1000);
   },
   data() {
@@ -192,7 +200,8 @@ export default {
       pdfUrl: "https://testcbb.lczq.com/static/agreement/admin/20230322/9b3f470a-b106-4c64-bc5e-f08f538fb71b.PDF",
       hasSafeArea: false,
       localStudentApiData: [],
-      localCarApiData: []
+      localCarApiData: [],
+      nowDateTime: ''
     };
   },
   methods: {
