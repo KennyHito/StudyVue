@@ -2,6 +2,7 @@
 <template>
   <div class="content">
     <slot>我是默认内容</slot>
+    <div>你好,世界!</div>
   </div>
 </template>
 

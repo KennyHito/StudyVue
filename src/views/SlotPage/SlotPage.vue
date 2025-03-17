@@ -14,11 +14,11 @@
       </Category>
       <Category>
         <div>👇🏻这里显示自定义的图片👇🏻</div>
-        <img src="@/assets/skull.png" alt="" style="height: 80%;">
+        <img src="@/assets/skull.png" alt="" style="height: 70%;">
       </Category>
       <Category>
         <div>👇🏻这里显示自定义的视频👇🏻</div>
-        <video controls :src="movieUrl" style="height:80%"></video>
+        <video controls :src="movieUrl" style="height:70%"></video>
       </Category>
     </div>
   </div>
