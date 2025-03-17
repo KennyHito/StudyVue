@@ -43,6 +43,11 @@
 
       <hr />
 
+      <video controls :src="movieUrl" style="width:100%"></video>
+      <a :href="movieUrl" target="_blank">跳转查看视频</a>
+
+      <hr />
+
       <div
         style="font-size: 20px;margin-left: 0px;margin-right: 0px;background-color: burlywood;text-align: center;border-radius: 10px;">
         字符串转日期:{{ formattedDate }}
@@ -162,6 +167,8 @@ export default {
   },
   created() {
     this.nav.title = this.$route.query.title;
+    this.movieUrl = process.env.VUE_APP_BASE_URL;
+    console.log(process.env.VUE_APP_BASE_URL);
   },
   mounted() {
     this.getNanoid = nanoid();
@@ -201,7 +208,8 @@ export default {
       hasSafeArea: false,
       localStudentApiData: [],
       localCarApiData: [],
-      nowDateTime: ''
+      nowDateTime: '',
+      movieUrl: ''
     };
   },
   methods: {

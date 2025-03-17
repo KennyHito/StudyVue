@@ -13,7 +13,7 @@
 import 'animate.css';
 
 export default {
-	name: 'Animation3',
+	name: 'AnimationThree',
 	data() {
 		return {
 			isShow: true

@@ -10,7 +10,7 @@
 
 <script>
 export default {
-	name: 'Animation2',
+	name: 'AnimationTwo',
 	data() {
 		return {
 			isShow: true
