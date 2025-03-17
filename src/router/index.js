@@ -96,6 +96,14 @@ const router = new Router({
         title: "SearchGithubPage"
       },
     },
+    {
+      path: "/SlotPage",
+      name: "SlotPage",
+      component: () => import("../views/SlotPage/SlotPage"),
+      meta: {
+        title: "SlotPage"
+      },
+    },
   ]
 });
 

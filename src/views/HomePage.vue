@@ -70,6 +70,10 @@ export default {
           vc: 'SearchGithubPage',
           title: '搜索GitHub上用户'
         },
+        {
+          vc: 'SlotPage',
+          title: 'slot组件插槽'
+        },
       ],
     }
   },
