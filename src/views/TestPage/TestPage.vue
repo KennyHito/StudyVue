@@ -167,12 +167,13 @@ export default {
   },
   created() {
     this.nav.title = this.$route.query.title;
-    this.movieUrl = process.env.VUE_APP_BASE_URL;
-    console.log(process.env.VUE_APP_BASE_URL);
   },
   mounted() {
     this.getNanoid = nanoid();
 
+    console.log(process.env);
+    this.movieUrl = process.env.VUE_APP_BASE_URL;
+    
     this.checkSafeArea();
     //启动定时器
     this.timer = setInterval(() => {
