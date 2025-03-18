@@ -6,7 +6,7 @@
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" :isShowLeftArrow="false" />
 
     <div class="contiainer">
-      <div v-for="(item, index) in vcArr" :key="index">
+      <div v-for="(item, index) in vcArr" :key="index" class="button-container">
         <van-button class="button-box" color="linear-gradient(to right, #ff6034, #ee0834)"
           @click="handleVCBtnClick(index)">
           {{ item.title }}
@@ -76,7 +76,7 @@ export default {
         },
         {
           vc: 'VuexPage',
-          title: 'vuex的使用'
+          title: '两种方式实现两个数加减(普通&vuex)'
         },
       ],
     }
@@ -105,19 +105,21 @@ export default {
 <!-- 样式 -->
 <style scoped lang='less'>
 .contiainer {
-  padding: 10px;
   height: 100%;
+}
+
+.button-container {
   text-align: center;
-  // display: flex; // 使用 flex 布局
-  // flex-wrap: wrap; // 允许子元素换行
-  // gap: 10px; // 设置按钮之间的间距
+  margin: 10px 0;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .button-box {
-  width: 300px;
+  width: 100%;
   height: 50px;
+  min-height: 50px;
   border-radius: 25px;
   font-size: 18px;
-  margin-bottom: 15px;
 }
 </style>

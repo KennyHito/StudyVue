@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import Vuex from 'vuex'
 import './assets/GlobalStyle.css'; // 自定义全局css
 import plugin from './customPlugin/plugin'; // 自定义插件
-
+import store from './store';
 import 'vant/lib/index.less';
 import {
 	Button,
@@ -60,7 +59,6 @@ import {
 } from 'vant';
 
 Vue.use(plugin);
-Vue.use(Vuex);
 
 Vue.use(Button);
 Vue.use(DatetimePicker);
@@ -124,6 +122,7 @@ window.vm = new Vue({
 	el: '#app',
 	render: (h) => h(App),
 	router,
+	store,//vuex
 	beforeCreate() {
 		Vue.prototype.$bus = this; // 全局事件数据总线
 	}
