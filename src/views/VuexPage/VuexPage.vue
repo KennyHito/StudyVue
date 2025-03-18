@@ -106,17 +106,23 @@ export default {
     },
     handleVuexClick(flag) {
       if (flag === 1) {
-        this.$store.dispatch('jia', this.vuexData.value)
+        // this.$store.dispatch('jia', this.vuexData.value)
+        // 如果没有逻辑处理可以直接调用commit,名字一定要和mutations中的方法名一样,即为大写的
+        this.$store.commit('JIA', this.vuexData.value)
       } else if (flag === 2) {
-        this.$store.dispatch('jian', this.vuexData.value)
+        // this.$store.dispatch('jian', this.vuexData.value)
+        // 同理如上
+        this.$store.commit('JIAN', this.vuexData.value)
       } else if (flag === 3) {
-        if (this.$store.state.sum % 2 === 1) {
-          this.$store.dispatch('jia', this.vuexData.value)
-        }
+        // if (this.$store.state.sum % 2 === 1) {
+        //   this.$store.dispatch('jia', this.vuexData.value)
+        // }
+        this.$store.dispatch('jiaOdd', this.vuexData.value);
       } else if (flag === 4) {
-        setTimeout(() => {
-          this.$store.dispatch('jia', this.vuexData.value)
-        }, 2000);
+        // setTimeout(() => {
+        //   this.$store.dispatch('jia', this.vuexData.value)
+        // }, 2000);
+        this.$store.dispatch('jiaWait', this.vuexData.value);
       }
     }
   },

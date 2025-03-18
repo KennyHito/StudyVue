@@ -12,6 +12,16 @@ const actions = {
   },
   jian(context,value){
     context.commit('JIAN',value)
+  },
+  jiaOdd(context,value){
+    if(context.state.sum % 2){
+      context.commit('JIA',value)
+    }
+  },
+  jiaWait(context,value){
+    setTimeout(() => {
+      context.commit('JIA',value)
+    }, 500);
   }
 }
 
