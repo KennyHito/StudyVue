@@ -48,7 +48,7 @@
 import MyNavBar from '@/components/MyNavBar.vue';
 
 export default {
-  name: 'TestFour',
+  name: 'TodoList',
   components: {
     MyNavBar
   },
