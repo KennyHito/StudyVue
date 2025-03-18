@@ -1,5 +1,5 @@
 ```
-代码未上传node_modules,需要手动yarn install进行安装依赖,然后npm run serve启动项目即可。
+代码未上传node_modules,需要手动yarn install进行安装依赖,然后npm run serve或yarn serve进行启动项目即可。
 ```
 
 ![前端学习路径](https://github.com/KennyHito/StudyVue/blob/main/public/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84.png)
