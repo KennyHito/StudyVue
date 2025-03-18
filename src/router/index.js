@@ -104,6 +104,14 @@ const router = new Router({
         title: "SlotPage"
       },
     },
+    {
+      path: "/VuexPage",
+      name: "VuexPage",
+      component: () => import("../views/VuexPage/VuexPage"),
+      meta: {
+        title: "VuexPage"
+      },
+    },
   ]
 });
 

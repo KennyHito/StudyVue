@@ -61,7 +61,9 @@ import {
 	Area,
 	Toast,
 	Empty,
-	ImagePreview
+	ImagePreview,
+	DropdownMenu, 
+	DropdownItem
 } from 'vant';
 
 Vue.use(Button);
@@ -112,6 +114,10 @@ Vue.use(Area);
 Vue.use(Toast);
 Vue.use(Empty);
 Vue.use(ImagePreview);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
+
+
 Vue.use(plugin);
 
 // 阻止 dblclick 事件来禁用双击放大

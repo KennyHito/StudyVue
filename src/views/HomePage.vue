@@ -74,6 +74,10 @@ export default {
           vc: 'SlotPage',
           title: 'slot组件插槽'
         },
+        {
+          vc: 'VuexPage',
+          title: 'vuex的使用'
+        },
       ],
     }
   },
