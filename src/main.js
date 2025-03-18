@@ -1,18 +1,11 @@
-// 引用vue
 import Vue from 'vue'
-// 引用APP,它是所有组件的父组件
 import App from './App.vue'
 import router from './router'
+import Vuex from 'vuex'
+import './assets/GlobalStyle.css'; // 自定义全局css
+import plugin from './customPlugin/plugin'; // 自定义插件
+
 import 'vant/lib/index.less';
-import plugin from './customPlugin/plugin';
-
-// 关闭生产提示
-Vue.config.productionTip = false
-// 为 Vue.prototype 添加一个全局属性
-Vue.prototype.$apiBaseUrl = 'https://www.baidu.com';
-// 引入全局 CSS 文件
-import './assets/GlobalStyle.css'; 
-
 import {
 	Button,
 	DatetimePicker,
@@ -66,6 +59,9 @@ import {
 	DropdownItem
 } from 'vant';
 
+Vue.use(plugin);
+Vue.use(Vuex);
+
 Vue.use(Button);
 Vue.use(DatetimePicker);
 Vue.use(Sticky);
@@ -117,8 +113,7 @@ Vue.use(ImagePreview);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
 
-
-Vue.use(plugin);
+Vue.config.productionTip = false;// 关闭生产提示
 
 // 阻止 dblclick 事件来禁用双击放大
 document.addEventListener('dblclick', (e) => {

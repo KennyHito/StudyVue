@@ -53,11 +53,6 @@
         字符串转日期:{{ formattedDate }}
       </div>
 
-      <div
-        :style="{ marginTop: '10px', fontSize: '20px', height: '20px', lineHeight: '20px', backgroundColor: '#3EF322', textAlign: 'center', borderRadius: '10px' }">
-        全局配置属性: {{ $apiBaseUrl }}
-      </div>
-
       <hr />
 
       <div class="text-common-style">
