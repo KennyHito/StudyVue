@@ -24,8 +24,9 @@
 
       <div class="vuex-box">
         <div class="text-common-style">👇🏻 用Vuex方式实现下面的功能: 👇🏻</div>
-        <span class="text-common-style">当前求和为: {{ $store.state.sum }}</span>
-        <span class="text-common-style">当前求和放大十倍为: {{ $store.getters.bigSum }}</span>
+        <span class="text-common-style">当前求和为: {{ sum }}</span>
+        <span class="text-common-style">当前求和放大十倍为: {{ bigSum }}</span>
+        <span class="text-common-style">我在{{ school }}，学习{{ subject }}</span>
         <div class="vuex-box-btn">
           <select v-model.number="vuexData.value" class="vuex-dropdown-menu">
             <option v-for="(item, index) in vuexData.option" :key="index" :value="item.value">{{ item.text }}</option>
@@ -45,7 +46,7 @@
 <script>
 // 引入其他组件
 import MyNavBar from '@/components/MyNavBar.vue';
-
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'VuexPage',
@@ -116,6 +117,7 @@ export default {
         // 同理如上
         this.$store.commit('JIAN', this.vuexData.value)
       } else if (flag === 3) {
+        // 将奇数逻辑等逻辑写到store中去
         // if (this.$store.state.sum % 2 === 1) {
         //   this.$store.dispatch('jia', this.vuexData.value)
         // }
@@ -124,10 +126,45 @@ export default {
         // setTimeout(() => {
         //   this.$store.dispatch('jia', this.vuexData.value)
         // }, 2000);
+        // 将延迟逻辑等逻辑写到store中去
         this.$store.dispatch('jiaWait', this.vuexData.value);
       }
     }
   },
+  computed: {
+    // 👇🏻 this.$store.state 👇🏻
+    // 🌰方法一:靠程序员自己亲自去写计算属性
+    // sum() {
+    //   return this.$store.state.sum
+    // },
+    // school() {
+    //   return this.$store.state.school
+    // },
+    // subject() {
+    //   return this.$store.state.subject
+    // },
+
+    // 🌰方法二:使用mapState
+    // 借助mapState生成计算属性，从state中读取数据。（对象写法）
+    // ...mapState({ sum: 'sum', school: 'school', subject: 'subject' }),
+
+    //借助mapState生成计算属性，从state中读取数据。（数组写法）
+    ...mapState(['sum', 'school', 'subject']),
+
+    /* ******************************************************************** */
+
+    // 👇🏻 this.$store.getters 👇🏻
+    // 🌰方法一:靠程序员自己亲自去写计算属性
+    // bigSum() {
+    //   return this.$store.getters.bigSum
+    // },
+
+    // 借助mapGetters生成计算属性，从getters中读取数据。（对象写法）
+    // ...mapGetters({bigSum:'bigSum'})
+
+    // 借助mapGetters生成计算属性，从getters中读取数据。（数组写法）
+    ...mapGetters(['bigSum'])
+  }
 }
 </script>
 
