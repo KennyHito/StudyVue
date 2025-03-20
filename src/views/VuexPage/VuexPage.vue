@@ -31,10 +31,10 @@
           <select v-model.number="vuexData.value" class="vuex-dropdown-menu">
             <option v-for="(item, index) in vuexData.option" :key="index" :value="item.value">{{ item.text }}</option>
           </select>
-          <button @click="handleVuexClick(1)">+</button>
-          <button @click="handleVuexClick(2)">-</button>
-          <button @click="handleVuexClick(3)">当前和为奇数再加</button>
-          <button @click="handleVuexClick(4)">等一等再加</button>
+          <button @click="handleAddClick(1)">+</button>
+          <button @click="handleSubClick(2)">-</button>
+          <button @click="handleOddAddClick(3)">当前和为奇数再加</button>
+          <button @click="handleWaitAddClick(4)">等一等再加</button>
         </div>
       </div>
 
@@ -46,7 +46,7 @@
 <script>
 // 引入其他组件
 import MyNavBar from '@/components/MyNavBar.vue';
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'VuexPage',
@@ -107,28 +107,30 @@ export default {
         }, 2000);
       }
     },
-    handleVuexClick(flag) {
-      if (flag === 1) {
-        // this.$store.dispatch('jia', this.vuexData.value)
-        // 如果没有逻辑处理可以直接调用commit,名字一定要和mutations中的方法名一样,即为大写的
-        this.$store.commit('JIA', this.vuexData.value)
-      } else if (flag === 2) {
-        // this.$store.dispatch('jian', this.vuexData.value)
-        // 同理如上
-        this.$store.commit('JIAN', this.vuexData.value)
-      } else if (flag === 3) {
-        // 将奇数逻辑等逻辑写到store中去
-        // if (this.$store.state.sum % 2 === 1) {
-        //   this.$store.dispatch('jia', this.vuexData.value)
-        // }
-        this.$store.dispatch('jiaOdd', this.vuexData.value);
-      } else if (flag === 4) {
-        // setTimeout(() => {
-        //   this.$store.dispatch('jia', this.vuexData.value)
-        // }, 2000);
-        // 将延迟逻辑等逻辑写到store中去
-        this.$store.dispatch('jiaWait', this.vuexData.value);
-      }
+
+    handleAddClick() {
+      // this.$store.dispatch('jia', this.vuexData.value)
+      // 如果没有逻辑处理可以直接调用commit,名字一定要和mutations中的方法名一样,即为大写的
+      this.$store.commit('JIA', this.vuexData.value)
+    },
+    handleSubClick() {
+      // this.$store.dispatch('jian', this.vuexData.value)
+      // 同理如上
+      this.$store.commit('JIAN', this.vuexData.value)
+    },
+    handleOddAddClick() {
+      // 将奇数逻辑等逻辑写到store中去
+      // if (this.$store.state.sum % 2 === 1) {
+      //   this.$store.dispatch('jia', this.vuexData.value)
+      // }
+      this.$store.dispatch('jiaOdd', this.vuexData.value);
+    },
+    handleWaitAddClick() {
+      // setTimeout(() => {
+      //   this.$store.dispatch('jia', this.vuexData.value)
+      // }, 2000);
+      // 将延迟逻辑等逻辑写到store中去
+      this.$store.dispatch('jiaWait', this.vuexData.value);
     }
   },
   computed: {
