@@ -10,6 +10,7 @@
       <div class="ordinary-box">
         <div class="text-common-style">👇🏻 用普通方式实现下面的功能: 👇🏻</div>
         <span class="text-common-style">当前求和为: {{ ordinary.sum }}</span>
+        <span class="text-common-style">当前求和放大十倍为: {{ ordinary.sum * 10 }}</span>
         <div class="ordinary-box-btn">
           <select v-model.number="ordinary.value" class="ordinary-dropdown-menu">
             <option v-for="(item, index) in ordinary.option" :key="index" :value="item.value">{{ item.text }}</option>
@@ -24,6 +25,7 @@
       <div class="vuex-box">
         <div class="text-common-style">👇🏻 用Vuex方式实现下面的功能: 👇🏻</div>
         <span class="text-common-style">当前求和为: {{ $store.state.sum }}</span>
+        <span class="text-common-style">当前求和放大十倍为: {{ $store.getters.bigSum }}</span>
         <div class="vuex-box-btn">
           <select v-model.number="vuexData.value" class="vuex-dropdown-menu">
             <option v-for="(item, index) in vuexData.option" :key="index" :value="item.value">{{ item.text }}</option>

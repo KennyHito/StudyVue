@@ -40,9 +40,17 @@ const state = {
 	sum:0
 }
 
+// 准备getters——用于将state中的数据进行加工
+const getters = {
+	bigSum(state){
+		return state.sum*10
+	}
+}
+
 // 创建并暴露store
 export default new Vuex.Store({
 	actions,
 	mutations,
 	state,
+  getters
 })
