@@ -31,10 +31,10 @@
           <select v-model.number="vuexData.n" class="vuex-dropdown-menu">
             <option v-for="(item, index) in vuexData.option" :key="index" :value="item.value">{{ item.text }}</option>
           </select>
-          <button @click="handleAddClick(vuexData.n)">+</button>
-          <button @click="handleSubClick(vuexData.n)">-</button>
-          <button @click="handleOddAddClick(vuexData.n)">当前和为奇数再加</button>
-          <button @click="handleWaitAddClick(vuexData.n)">等一等再加</button>
+          <button @click="JIA(vuexData.n)">+</button>
+          <button @click="JIAN(vuexData.n)">-</button>
+          <button @click="jiaOdd(vuexData.n)">当前和为奇数再加</button>
+          <button @click="jiaWait(vuexData.n)">等一等再加</button>
         </div>
       </div>
 
@@ -46,7 +46,7 @@
 <script>
 // 引入其他组件
 import MyNavBar from '@/components/MyNavBar.vue';
-import { mapState, mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'VuexPage',
@@ -86,6 +86,38 @@ export default {
       }
     }
   },
+
+  computed: {
+    // 🌰方法一: 靠程序员自己亲自去写计算属性 this.$store.state
+    // sum() {
+    //   return this.$store.state.sum
+    // },
+    // school() {
+    //   return this.$store.state.school
+    // },
+    // subject() {
+    //   return this.$store.state.subject
+    // },
+
+    // 🌰方法二: mapState
+    // 借助mapState生成计算属性，从state中读取数据。（对象写法）
+    // ...mapState({ sum: 'sum', school: 'school', subject: 'subject' }),
+    //借助mapState生成计算属性，从state中读取数据。（数组写法）
+    ...mapState(['sum', 'school', 'subject']),
+
+    /* ******************************************************************** */
+
+    // 🌰方法一:靠程序员自己亲自去写计算属性 this.$store.getters
+    // bigSum() {
+    //   return this.$store.getters.bigSum
+    // },
+
+    // 🌰方法二: mapGetters
+    // 借助mapGetters生成计算属性，从getters中读取数据。（对象写法）
+    // ...mapGetters({bigSum:'bigSum'})
+    // 借助mapGetters生成计算属性，从getters中读取数据。（数组写法）
+    ...mapGetters(['bigSum'])
+  },
   methods: {
     handleLeftClick() {
       this.$router.back();
@@ -107,70 +139,49 @@ export default {
         }, 2000);
       }
     },
-    // 🌰方法一: 使用this.$store.commit
-    // handleAddClick() {
+
+    // 🌰方法一:靠程序员自己亲自去写方法 this.$store.commit
+    // JIA() {
     //   // this.$store.dispatch('jia', this.vuexData.n)
     //   // 如果没有逻辑处理可以直接调用commit,名字一定要和mutations中的方法名一样,即为大写的
     //   this.$store.commit('JIA', this.vuexData.n);
     // },
-    // handleSubClick() {
+    // JIAN() {
     //   // this.$store.dispatch('jian', this.vuexData.n)
     //   // 同理如上
     //   this.$store.commit('JIAN', this.vuexData.n);
     // },
 
-    // 🌰方法二: 使用mapMutations
-    ...mapMutations({ handleAddClick: 'JIA', handleSubClick: 'JIAN' }),
-    /***************************************************************************/
-    handleOddAddClick() {
-      // 将奇数逻辑等逻辑写到store中去
-      // if (this.$store.state.sum % 2 === 1) {
-      //   this.$store.dispatch('jia', this.vuexData.n)
-      // }
-      this.$store.dispatch('jiaOdd', this.vuexData.n);
-    },
-    handleWaitAddClick() {
-      // setTimeout(() => {
-      //   this.$store.dispatch('jia', this.vuexData.n)
-      // }, 2000);
-      // 将延迟逻辑等逻辑写到store中去
-      this.$store.dispatch('jiaWait', this.vuexData.n);
-    }
-  },
-  computed: {
-    // 👇🏻 this.$store.state 👇🏻
-    // 🌰方法一:靠程序员自己亲自去写计算属性
-    // sum() {
-    //   return this.$store.state.sum
-    // },
-    // school() {
-    //   return this.$store.state.school
-    // },
-    // subject() {
-    //   return this.$store.state.subject
-    // },
-
-    // 🌰方法二:使用mapState
-    // 借助mapState生成计算属性，从state中读取数据。（对象写法）
-    // ...mapState({ sum: 'sum', school: 'school', subject: 'subject' }),
-
-    //借助mapState生成计算属性，从state中读取数据。（数组写法）
-    ...mapState(['sum', 'school', 'subject']),
+    // 🌰方法二: mapMutations
+    // 借助mapMutations生成对应的方法，方法中会调用commit去联系mutations(对象写法)
+    // ...mapMutations({ JIA: 'JIA', JIA: 'JIAN' }),
+    //借助mapMutations生成对应的方法，方法中会调用commit去联系mutations(数组写法)
+    ...mapMutations(['JIA', 'JIAN']),
 
     /* ******************************************************************** */
 
-    // 👇🏻 this.$store.getters 👇🏻
-    // 🌰方法一:靠程序员自己亲自去写计算属性
-    // bigSum() {
-    //   return this.$store.getters.bigSum
+    // 🌰方法一:靠程序员自己亲自去写方法 this.$store.dispatch
+    // jiaOdd() {
+    //   // 将奇数逻辑等逻辑写到store中去
+    //   // if (this.$store.state.sum % 2 === 1) {
+    //   //   this.$store.dispatch('jia', this.vuexData.n)
+    //   // }
+    //   this.$store.dispatch('jiaOdd', this.vuexData.n);
+    // },
+    // jiaWait() {
+    //   // setTimeout(() => {
+    //   //   this.$store.dispatch('jia', this.vuexData.n)
+    //   // }, 2000);
+    //   // 将延迟逻辑等逻辑写到store中去
+    //   this.$store.dispatch('jiaWait', this.vuexData.n);
     // },
 
-    // 借助mapGetters生成计算属性，从getters中读取数据。（对象写法）
-    // ...mapGetters({bigSum:'bigSum'})
-
-    // 借助mapGetters生成计算属性，从getters中读取数据。（数组写法）
-    ...mapGetters(['bigSum'])
-  }
+    // 🌰方法二: mapActions
+    //借助mapActions生成对应的方法，方法中会调用dispatch去联系actions(对象写法)
+    // ...mapActions({ jiaOdd: 'jiaOdd', jiaWait: 'jiaWait' })
+    //借助mapActions生成对应的方法，方法中会调用dispatch去联系actions(数组写法)
+    ...mapActions(['jiaOdd', 'jiaWait'])
+  },
 }
 </script>
 
