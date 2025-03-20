@@ -12,7 +12,7 @@
         <span class="text-common-style">当前求和为: {{ ordinary.sum }}</span>
         <span class="text-common-style">当前求和放大十倍为: {{ ordinary.sum * 10 }}</span>
         <div class="ordinary-box-btn">
-          <select v-model.number="ordinary.value" class="ordinary-dropdown-menu">
+          <select v-model.number="ordinary.n" class="ordinary-dropdown-menu">
             <option v-for="(item, index) in ordinary.option" :key="index" :value="item.value">{{ item.text }}</option>
           </select>
           <button @click="handleClick(1)">+</button>
@@ -28,13 +28,13 @@
         <span class="text-common-style">当前求和放大十倍为: {{ bigSum }}</span>
         <span class="text-common-style">我在{{ school }}，学习{{ subject }}</span>
         <div class="vuex-box-btn">
-          <select v-model.number="vuexData.value" class="vuex-dropdown-menu">
+          <select v-model.number="vuexData.n" class="vuex-dropdown-menu">
             <option v-for="(item, index) in vuexData.option" :key="index" :value="item.value">{{ item.text }}</option>
           </select>
-          <button @click="handleAddClick(1)">+</button>
-          <button @click="handleSubClick(2)">-</button>
-          <button @click="handleOddAddClick(3)">当前和为奇数再加</button>
-          <button @click="handleWaitAddClick(4)">等一等再加</button>
+          <button @click="handleAddClick(vuexData.n)">+</button>
+          <button @click="handleSubClick(vuexData.n)">-</button>
+          <button @click="handleOddAddClick(vuexData.n)">当前和为奇数再加</button>
+          <button @click="handleWaitAddClick(vuexData.n)">等一等再加</button>
         </div>
       </div>
 
@@ -71,7 +71,7 @@ export default {
           { text: '2', value: 2 },
           { text: '3', value: 3 },
         ],
-        value: 1,
+        n: 1,
         sum: 0
       },
       // Vuex的数据
@@ -82,7 +82,7 @@ export default {
           { text: '2', value: 2 },
           { text: '3', value: 3 },
         ],
-        value: 1,
+        n: 1,
       }
     }
   },
@@ -94,43 +94,47 @@ export default {
     },
     handleClick(flag) {
       if (flag === 1) {
-        this.ordinary.sum += this.ordinary.value;
+        this.ordinary.sum += this.ordinary.n;
       } else if (flag === 2) {
-        this.ordinary.sum -= this.ordinary.value;
+        this.ordinary.sum -= this.ordinary.n;
       } else if (flag === 3) {
         if (this.ordinary.sum % 2 === 1) {
-          this.ordinary.sum += this.ordinary.value;
+          this.ordinary.sum += this.ordinary.n;
         }
       } else if (flag === 4) {
         setTimeout(() => {
-          this.ordinary.sum += this.ordinary.value;
+          this.ordinary.sum += this.ordinary.n;
         }, 2000);
       }
     },
+    // 🌰方法一: 使用this.$store.commit
+    // handleAddClick() {
+    //   // this.$store.dispatch('jia', this.vuexData.n)
+    //   // 如果没有逻辑处理可以直接调用commit,名字一定要和mutations中的方法名一样,即为大写的
+    //   this.$store.commit('JIA', this.vuexData.n);
+    // },
+    // handleSubClick() {
+    //   // this.$store.dispatch('jian', this.vuexData.n)
+    //   // 同理如上
+    //   this.$store.commit('JIAN', this.vuexData.n);
+    // },
 
-    handleAddClick() {
-      // this.$store.dispatch('jia', this.vuexData.value)
-      // 如果没有逻辑处理可以直接调用commit,名字一定要和mutations中的方法名一样,即为大写的
-      this.$store.commit('JIA', this.vuexData.value)
-    },
-    handleSubClick() {
-      // this.$store.dispatch('jian', this.vuexData.value)
-      // 同理如上
-      this.$store.commit('JIAN', this.vuexData.value)
-    },
+    // 🌰方法二: 使用mapMutations
+    ...mapMutations({ handleAddClick: 'JIA', handleSubClick: 'JIAN' }),
+    /***************************************************************************/
     handleOddAddClick() {
       // 将奇数逻辑等逻辑写到store中去
       // if (this.$store.state.sum % 2 === 1) {
-      //   this.$store.dispatch('jia', this.vuexData.value)
+      //   this.$store.dispatch('jia', this.vuexData.n)
       // }
-      this.$store.dispatch('jiaOdd', this.vuexData.value);
+      this.$store.dispatch('jiaOdd', this.vuexData.n);
     },
     handleWaitAddClick() {
       // setTimeout(() => {
-      //   this.$store.dispatch('jia', this.vuexData.value)
+      //   this.$store.dispatch('jia', this.vuexData.n)
       // }, 2000);
       // 将延迟逻辑等逻辑写到store中去
-      this.$store.dispatch('jiaWait', this.vuexData.value);
+      this.$store.dispatch('jiaWait', this.vuexData.n);
     }
   },
   computed: {
