@@ -78,6 +78,10 @@ export default {
           vc: 'VuexPage',
           title: '两种方式实现两个数加减(普通&vuex)'
         },
+        {
+          vc: 'VuexSharedPage',
+          title: 'vuex多组件数据共享'
+        },
       ],
     }
   },

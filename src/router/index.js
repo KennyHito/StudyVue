@@ -112,6 +112,14 @@ const router = new Router({
         title: "VuexPage"
       },
     },
+    {
+      path: "/VuexSharedPage",
+      name: "VuexSharedPage",
+      component: () => import("../views/VuexSharedPage/VuexSharedPage"),
+      meta: {
+        title: "VuexSharedPage"
+      },
+    },
   ]
 });
 

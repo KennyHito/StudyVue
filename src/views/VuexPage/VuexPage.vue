@@ -189,7 +189,7 @@ export default {
 <!-- 样式 -->
 <style scoped lang='less'>
 .container {
-  padding: 10px;
+  padding: 5px;
   font-size: 18px;
 
   .ordinary-box {
