@@ -82,6 +82,7 @@ export default {
           vc: 'VuexSharedPage',
           title: 'vuex多组件数据共享'
         },
+
       ],
     }
   },
