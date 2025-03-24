@@ -29,9 +29,18 @@
 
       <hr />
 
-      <div class="text-common-style">👇🏻 复习vuex: 👇🏻</div>
+      <div class="text-common-style" :style="{fontWeight:'bold'}">👇🏻 复习vuex: 👇🏻</div>
       <div class="text-common-style">1、通过$store.state.xixihaha的方式获取xxx的值:{{ $store.state.xixihaha.xxx }}</div>
-      <div class="text-common-style">2、通过$store的mapState的方式获取xxx的值:{{ xxx }}</div>
+      <div class="text-common-style">2、通过mapState的方式获取xxx的值:{{ xxx }}</div>
+
+      <div class="text-common-style">3、通过$store.getters的方式获取用户信息:{{ $store.getters['xixihaha/personMsg'] }}</div>
+      <div class="text-common-style">4、通过mapGetters的方式获取用户信息:{{ personMsg }}</div>
+
+      <button class="btn-common-style" @click="cyFive(5)">5、通过$store.dispatch的方式获取xxx的值:{{ xxx }}</button>
+      <button class="btn-common-style" @click="cySix(6)">6、通过mapAction的方式获取xxx的值:{{ xxx }}</button>
+
+      <button class="btn-common-style" @click="cySeven(7)">7、通过$store.commit的方式获取xxx的值:{{ xxx }}</button>
+      <button class="btn-common-style" @click="cyEight(8)">8、通过mapMutations的方式获取xxx的值:{{ xxx }}</button>
       <hr />
 
       <div class="text-common-style">👇🏻 当前日期和时间: 👇🏻</div>
@@ -84,7 +93,7 @@
       <hr />
 
       <div class="text-common-style">👇🏻 进入页面输入框直接成为焦点: 👇🏻</div>
-      <input v-fbind:value="student.name">
+      <!-- <input v-fbind:value="student.name"> -->
 
       <hr />
 
@@ -157,7 +166,7 @@ import { common } from '../../mixin/common'
 import { nanoid } from 'nanoid';
 import http from '../../config/httpService.js'
 import dayjs from 'dayjs';
-import { mapState } from 'vuex';
+import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
 
 export default {
   name: "TestPage",
@@ -288,9 +297,17 @@ export default {
         this.$toast('我是立即购买');
       }
     },
+    cyFive(value){
+      this.$store.dispatch('xixihaha/multiplyByFive',value)
+    },
+    ...mapActions('xixihaha',{cySix:'multiplyByFive'}),
     getChildMethod(value) {
       console.log('打印的内容是:--->', value);
     },
+    cySeven(value){
+      this.$store.commit('xixihaha/MULTIPLYBYFIVE',value)
+    },
+    ...mapMutations('xixihaha',{cyEight:'MULTIPLYBYFIVE'}),
     childToParTwo(value) {
       console.log('打印的内容是:--->', value);
     },
@@ -321,6 +338,7 @@ export default {
     },
     // 借助mapState生成计算属性，从state中读取数据。（数组写法）
     ...mapState('xixihaha', ['xxx']),
+    ...mapGetters('xixihaha',['personMsg'])
   },
   beforeDestroy() {
     console.log('⚠️测试打印的内容:--->', 'beforeDestroy');
@@ -337,11 +355,11 @@ export default {
   .btn-common-style {
     padding: 0 10px;
     margin: 5px;
-    height: 40px;
+    //height: 40px;
     min-height: 40px;
     background-color: rgb(255, 4, 4);
     border: 2px solid rgb(2, 2, 2);
-    border-radius: 20px;
+    border-radius: 10px;
     color: white;
     font-size: 18px;
   }
