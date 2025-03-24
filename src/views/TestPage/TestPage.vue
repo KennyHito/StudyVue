@@ -29,6 +29,11 @@
 
       <hr />
 
+      <div class="text-common-style">👇🏻 复习vuex: 👇🏻</div>
+      <div class="text-common-style">1、通过$store.state.xixihaha的方式获取xxx的值:{{ $store.state.xixihaha.xxx }}</div>
+      <div class="text-common-style">2、通过$store的mapState的方式获取xxx的值:{{ xxx }}</div>
+      <hr />
+
       <div class="text-common-style">👇🏻 当前日期和时间: 👇🏻</div>
       <div class="text-common-style" v-show="nowDateTime">{{ nowDateTime }}</div>
 
@@ -152,6 +157,7 @@ import { common } from '../../mixin/common'
 import { nanoid } from 'nanoid';
 import http from '../../config/httpService.js'
 import dayjs from 'dayjs';
+import { mapState } from 'vuex';
 
 export default {
   name: "TestPage",
@@ -168,7 +174,7 @@ export default {
 
     console.log(process.env);
     this.movieUrl = process.env.VUE_APP_BASE_URL;
-    
+
     this.checkSafeArea();
     //启动定时器
     this.timer = setInterval(() => {
@@ -176,6 +182,8 @@ export default {
       this.timeCount++;
       this.nowDateTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
     }, 1000);
+
+    console.log(this.$store);
   },
   data() {
     return {
@@ -310,7 +318,9 @@ export default {
         month: 'long',
         day: '2-digit'
       }).format(date);
-    }
+    },
+    // 借助mapState生成计算属性，从state中读取数据。（数组写法）
+    ...mapState('xixihaha', ['xxx']),
   },
   beforeDestroy() {
     console.log('⚠️测试打印的内容:--->', 'beforeDestroy');

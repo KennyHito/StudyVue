@@ -2,6 +2,7 @@
 import Vue from 'vue';
 // 引入Vuex
 import Vuex from 'vuex'
+import xixihaha from './xixihaha';
 // 应用Vuex插件
 Vue.use(Vuex);
 
@@ -61,5 +62,8 @@ export default new Vuex.Store({
 	actions,
 	mutations,
 	state,
-  getters
+  getters,
+  modules:{
+    xixihaha
+  }
 })
