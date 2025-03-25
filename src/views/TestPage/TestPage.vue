@@ -6,6 +6,20 @@
 
     <div class="container" :style="{ marginBottom: hasSafeArea ? '84px' : '50px' }">
 
+      <div style="display: flex;flex-direction: column;align-items: center;">
+        <van-button class="btn-common-style" @click="handleClick(0)">获取一张猫的图片(axios)</van-button>
+        <div @click="bigPicClick">
+          <van-image v-show="catData.url" :width="catData.height" :height="catData.height" :src="catData.url">
+            <template v-slot:loading>
+              <van-loading type="spinner" size="20" />
+            </template>
+          </van-image>
+        </div>
+        <van-image-preview v-model="bigPic.show" :images="bigPic.images" />
+      </div>
+
+      <hr />
+
       <van-button class="btn-common-style" @click="handleClick(1)">
         父传子(props)
       </van-button>
@@ -29,7 +43,7 @@
 
       <hr />
 
-      <div class="text-common-style" :style="{fontWeight:'bold'}">👇🏻 复习vuex: 👇🏻</div>
+      <div class="text-common-style" :style="{ fontWeight: 'bold' }">👇🏻 复习vuex: 👇🏻</div>
       <div class="text-common-style">1、通过$store.state.xixihaha的方式获取xxx的值:{{ $store.state.xixihaha.xxx }}</div>
       <div class="text-common-style">2、通过mapState的方式获取xxx的值:{{ xxx }}</div>
 
@@ -222,7 +236,16 @@ export default {
       localStudentApiData: [],
       localCarApiData: [],
       nowDateTime: '',
-      movieUrl: ''
+      movieUrl: '',
+      catData: {
+        height: 0,
+        width: 0,
+        url: ""
+      },
+      bigPic: {
+        show: false,
+        images: [],
+      }
     };
   },
   methods: {
@@ -234,7 +257,9 @@ export default {
     },
     handleClick(type) {
       console.log(type);
-      if (type === 1) {
+      if (type === 0) {
+        this.getCarApi();
+      } else if (type === 1) {
         // 父传子
         this.studentName = "张三";
         this.studentAge = 18;
@@ -297,17 +322,17 @@ export default {
         this.$toast('我是立即购买');
       }
     },
-    cyFive(value){
-      this.$store.dispatch('xixihaha/multiplyByFive',value)
+    cyFive(value) {
+      this.$store.dispatch('xixihaha/multiplyByFive', value)
     },
-    ...mapActions('xixihaha',{cySix:'multiplyByFive'}),
+    ...mapActions('xixihaha', { cySix: 'multiplyByFive' }),
     getChildMethod(value) {
       console.log('打印的内容是:--->', value);
     },
-    cySeven(value){
-      this.$store.commit('xixihaha/MULTIPLYBYFIVE',value)
+    cySeven(value) {
+      this.$store.commit('xixihaha/MULTIPLYBYFIVE', value)
     },
-    ...mapMutations('xixihaha',{cyEight:'MULTIPLYBYFIVE'}),
+    ...mapMutations('xixihaha', { cyEight: 'MULTIPLYBYFIVE' }),
     childToParTwo(value) {
       console.log('打印的内容是:--->', value);
     },
@@ -320,6 +345,24 @@ export default {
           CSS.supports('padding-top: constant(safe-area-inset-top)') ||
           CSS.supports('padding-top: env(safe-area-inset-top)');
       }
+    },
+    getCarApi() {
+      http.get('https://api.thecatapi.com/v1/images/search').then(res => {
+        if (res.status === 200) {
+          console.log('⚠️测试打印的内容:--->', res.data);
+          this.catData = {
+            height: res.data[0].height.metric,
+            width: res.data[0].width.metric,
+            url: res.data[0].url
+          };
+        } else {
+          this.$toast(res.statusText);
+        }
+      });
+    },
+    bigPicClick() {
+      this.bigPic.images = [this.catData.url];
+      this.bigPic.show = true;
     }
   },
   computed: {
@@ -338,7 +381,7 @@ export default {
     },
     // 借助mapState生成计算属性，从state中读取数据。（数组写法）
     ...mapState('xixihaha', ['xxx']),
-    ...mapGetters('xixihaha',['personMsg'])
+    ...mapGetters('xixihaha', ['personMsg'])
   },
   beforeDestroy() {
     console.log('⚠️测试打印的内容:--->', 'beforeDestroy');

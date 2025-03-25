@@ -55,7 +55,8 @@ import {
 	Empty,
 	ImagePreview,
 	DropdownMenu, 
-	DropdownItem
+	DropdownItem,
+	Image as VanImage 
 } from 'vant';
 
 Vue.use(plugin);
@@ -110,6 +111,7 @@ Vue.use(Empty);
 Vue.use(ImagePreview);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
+Vue.use(VanImage);
 
 Vue.config.productionTip = false;// 关闭生产提示
 
