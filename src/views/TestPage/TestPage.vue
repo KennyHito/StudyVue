@@ -250,7 +250,6 @@ export default {
       this.$toast('啊啊啊');
     },
     handleClick(type) {
-      console.log(type);
       if (type === 0) {
         this.getCarApi();
       } else if (type === 1) {
@@ -343,7 +342,6 @@ export default {
     getCarApi() {
       http.get('https://api.thecatapi.com/v1/images/search').then(res => {
         if (res.status === 200) {
-          console.log('⚠️测试打印的内容:--->', res.data);
           this.catData = {
             height: res.data[0].height.metric,
             width: res.data[0].width.metric,
