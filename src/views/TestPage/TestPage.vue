@@ -71,11 +71,6 @@
 
       <hr />
 
-      <video controls :src="movieUrl" style="width:100%"></video>
-      <a :href="movieUrl" target="_blank">跳转查看视频</a>
-
-      <hr />
-
       <div
         style="font-size: 20px;margin-left: 0px;margin-right: 0px;background-color: burlywood;text-align: center;border-radius: 10px;">
         字符串转日期:{{ formattedDate }}
@@ -152,9 +147,8 @@
 
       <hr />
 
-      <div class="img-box">
-        <img alt="" src="https://img-xhpfm.xinhuaxmt.com/News/202412/105012024121700012391.gif">
-      </div>
+      <video controls :src="movieUrl" style="width:100%"></video>
+      <a :href="movieUrl" target="_blank">跳转查看视频</a>
 
       <hr />
 
@@ -423,11 +417,6 @@ export default {
   .radio-group-style {
     display: flex;
     margin-top: 10px;
-  }
-
-  .img-box {
-    display: grid;
-    place-items: center;
   }
 }
 </style>
