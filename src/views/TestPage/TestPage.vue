@@ -205,9 +205,6 @@ export default {
       this.nowDateTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
     }, 1000);
     this.$bus.$on("childToParThree", this.childToParThree);
-    let weatherArr = process.env.VUE_APP_CITY_CODE.split(',')
-    let indxe = Math.round(Math.random() * weatherArr.length);
-    this.weatherCode = weatherArr[indxe];
   },
   data() {
     return {
@@ -256,7 +253,6 @@ export default {
       childThree: {
         value: ""
       },
-      weatherCode: 0,
       weatherData: ''
     };
   },
@@ -324,9 +320,12 @@ export default {
           console.log(err.message);
         });
       } else if (type === 15) {
+        let weatherArr = process.env.VUE_APP_CITY_CODE.split(',')
+        let indxe = Math.round(Math.random() * weatherArr.length);
+        let weatherCode = weatherArr[indxe];
         /*  网上找的一个天气的接口 http://t.weather.itboy.net/api/weather/city/101030100 
         但是存在跨域的问题 故需要在vue.config.js中配置代理解决跨域问题 */
-        http.get('http://localhost:8080/we/api/weather/city/' + this.weatherCode).then(res => {
+        http.get('http://localhost:8080/we/api/weather/city/' + weatherCode).then(res => {
           let data = res.data;
           this.$toast(data.message);
           if (res.status === 200) {
