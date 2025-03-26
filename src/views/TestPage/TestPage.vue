@@ -320,6 +320,7 @@ export default {
           console.log(err.message);
         });
       } else if (type === 15) {
+        // 请求天气接口
         let weatherArr = process.env.VUE_APP_CITY_CODE.split(',')
         let indxe = Math.round(Math.random() * weatherArr.length);
         let weatherCode = weatherArr[indxe];
