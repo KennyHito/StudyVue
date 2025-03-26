@@ -51,6 +51,7 @@ export default {
         return
       }
       this.$toast("输入的用户名:" + this.username)
+      this.username = "";
     },
     handleChildToParOne() {
       if (this.username === '') {
@@ -58,6 +59,7 @@ export default {
         return
       }
       this.getChildMethod("方法一,通过props的方式传给父组件用户名:" + this.username);
+      this.username = "";
     },
     handleChildToParTwo() {
       if (this.username === '') {
@@ -65,6 +67,7 @@ export default {
         return
       }
       this.$emit("childToParTwo", "方法二,通过$emit的方式传给父组件用户名:" + this.username);
+      this.username = "";
     },
     handleChildToParThree() {
       if (this.username === '') {
@@ -72,6 +75,7 @@ export default {
         return
       }
       this.$bus.$emit("childToParThree", "方法三,通过全局$bus方式传给父组件用户名:" + this.username);
+      this.username = "";
     }
   },
   computed: {

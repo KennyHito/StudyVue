@@ -43,6 +43,11 @@
         <button class="btn-common-style" @click="handleClick(14)">请求汽车接口</button>
         <p class="text-common-style" v-if="localCarApiData.length > 0">{{ localCarApiData }}</p>
       </div>
+      <div>
+        <button class="btn-common-style" @click="handleClick(15)">请求天气接口</button>
+        <p class="text-common-style" v-if="weatherData">{{ weatherData }}</p>
+      </div>
+
 
       <hr />
 
@@ -191,10 +196,7 @@ export default {
   },
   mounted() {
     this.getNanoid = nanoid();
-
-    console.log(process.env);
     this.movieUrl = process.env.VUE_APP_BASE_URL;
-
     this.checkSafeArea();
     //启动定时器
     this.timer = setInterval(() => {
@@ -202,9 +204,10 @@ export default {
       this.timeCount++;
       this.nowDateTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
     }, 1000);
-
     this.$bus.$on("childToParThree", this.childToParThree);
-    console.log(this.$store);
+    let weatherArr = process.env.VUE_APP_CITY_CODE.split(',')
+    let indxe = Math.round(Math.random() * weatherArr.length);
+    this.weatherCode = weatherArr[indxe];
   },
   data() {
     return {
@@ -252,7 +255,9 @@ export default {
       },
       childThree: {
         value: ""
-      }
+      },
+      weatherCode: 0,
+      weatherData: ''
     };
   },
   methods: {
@@ -315,6 +320,18 @@ export default {
         http.get('http://localhost:8080/qc/cars').then(res => {
           console.log(res.data);
           this.localCarApiData = res.data;
+        }).catch(err => {
+          console.log(err.message);
+        });
+      } else if (type === 15) {
+        /*  网上找的一个天气的接口 http://t.weather.itboy.net/api/weather/city/101030100 
+        但是存在跨域的问题 故需要在vue.config.js中配置代理解决跨域问题 */
+        http.get('http://localhost:8080/we/api/weather/city/' + this.weatherCode).then(res => {
+          let data = res.data;
+          this.$toast(data.message);
+          if (res.status === 200) {
+            this.weatherData = data;
+          }
         }).catch(err => {
           console.log(err.message);
         });

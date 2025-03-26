@@ -27,6 +27,10 @@ module.exports = defineConfig({
 				pathRewrite:{'^/qc':''},//重写路径把qc替换成空
         // ws: true, //用于支持websocket(默认值true)
         // changeOrigin: true //用于控制请求头中的host值(默认值true)
+      },
+      'we':{
+        target:'http://t.weather.itboy.net',
+        pathRewrite:{'^/we':''},//重写路径把we替换成空
       }
     }
   }
