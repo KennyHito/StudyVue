@@ -7,6 +7,7 @@
     <div class="div-box">父组件传递过来的年龄: {{ age }}</div>
     <button class="btn-box" @click="handleChildToParOne">子传父方法一(props)</button>
     <button class="btn-box" @click="handleChildToParTwo">子传父方法二(自定义事件)</button>
+    <button class="btn-box" @click="handleChildToParThree">子传父方法三($bus)</button>
   </div>
 </template>
 
@@ -52,10 +53,25 @@ export default {
       this.$toast("输入的用户名:" + this.username)
     },
     handleChildToParOne() {
-      this.getChildMethod("方法一:我是子组件的内容");
+      if (this.username === '') {
+        this.$toast('请输入用户名')
+        return
+      }
+      this.getChildMethod("方法一,通过props的方式传给父组件用户名:" + this.username);
     },
     handleChildToParTwo() {
-      this.$emit("childToParTwo", "方法二:我是子组件的内容");
+      if (this.username === '') {
+        this.$toast('请输入用户名')
+        return
+      }
+      this.$emit("childToParTwo", "方法二,通过$emit的方式传给父组件用户名:" + this.username);
+    },
+    handleChildToParThree() {
+      if (this.username === '') {
+        this.$toast('请输入用户名')
+        return
+      }
+      this.$bus.$emit("childToParThree", "方法三,通过全局$bus方式传给父组件用户名:" + this.username);
     }
   },
   computed: {

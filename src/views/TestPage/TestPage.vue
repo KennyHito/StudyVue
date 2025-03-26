@@ -26,6 +26,9 @@
       <van-button class="btn-common-style" @click="handleClick(2)">
         父触发子方法(ref)
       </van-button>
+      <div>{{ childOne.value }}</div>
+      <div>{{ childTwo.value }}</div>
+      <div>{{ childThree.value }}</div>
       <!-- ChildPage -->
       <ChildPage :name="studentName" :age="studentAge" ref="showUserNameRef" :getChildMethod="getChildMethod"
         @childToParTwo="childToParTwo" />
@@ -200,6 +203,7 @@ export default {
       this.nowDateTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
     }, 1000);
 
+    this.$bus.$on("childToParThree", this.childToParThree);
     console.log(this.$store);
   },
   data() {
@@ -239,6 +243,15 @@ export default {
       bigPic: {
         show: false,
         images: [],
+      },
+      childOne: {
+        value: ""
+      },
+      childTwo: {
+        value: ""
+      },
+      childThree: {
+        value: ""
       }
     };
   },
@@ -321,6 +334,7 @@ export default {
     ...mapActions('xixihaha', { cySix: 'multiplyByFive' }),
     getChildMethod(value) {
       console.log('打印的内容是:--->', value);
+      this.childOne.value = value;
     },
     cySeven(value) {
       this.$store.commit('xixihaha/MULTIPLYBYFIVE', value)
@@ -328,6 +342,11 @@ export default {
     ...mapMutations('xixihaha', { cyEight: 'MULTIPLYBYFIVE' }),
     childToParTwo(value) {
       console.log('打印的内容是:--->', value);
+      this.childTwo.value = value;
+    },
+    childToParThree(value) {
+      console.log('打印的内容是:--->', value);
+      this.childThree.value = value;
     },
     checkSafeArea() {
       // 检测是否为 iOS 设备
