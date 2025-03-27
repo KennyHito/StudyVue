@@ -12,6 +12,9 @@ const router = new Router({
       path: "/HomePage",
       name:"HomePage",
       component: () => import("../views/HomePage"),
+      meta:{
+        title:"首页1111"
+      }
     },
     {
       path: "/TestPage",
@@ -83,8 +86,7 @@ const router = new Router({
 
 //全局前置路由守卫————初始化的时候被调用、每次路由切换之前被调用
 router.beforeEach((to, from, next) => {
-  console.log('⚠️测试打印的内容:--->from',from);
-  console.log('⚠️测试打印的内容:--->to',to);
+  console.log('前置路由守卫',to,from)
   let routeConditions = window.localStorage.getItem("routeConditions")
   if(routeConditions === '苟七' && from.name === 'TestPage' && to.name === 'AddressPage'){
     alert('因为你是苟七,不允许你跳转!');
@@ -92,5 +94,11 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
+
+//全局后置路由守卫————初始化的时候被调用、每次路由切换之后被调用
+router.afterEach((to,from)=>{
+	console.log('后置路由守卫',to,from)
+	document.title = to.meta.title;
+})
 
 export default router;
