@@ -193,9 +193,10 @@ export default {
   },
   created() {
     this.nav.title = this.$route.query.title;
+    // this.nav.title = this.$route.params.title;
   },
   mounted() {
-    console.log('⚠️测试打印的内容:--->', this.$route);
+    console.log('⚠️测试打印的内容:--->mounted', this.$route);
     this.getNanoid = nanoid();
     this.movieUrl = process.env.VUE_APP_BASE_URL;
     this.checkSafeArea();
