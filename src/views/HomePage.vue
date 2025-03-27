@@ -109,6 +109,14 @@ export default {
         //   title: item.title
         // }
       });
+
+      // 用replace方式跳转,则无法返回上一个页面
+      // this.$router.replace({
+      //   path: item.vc,
+      //   query: {
+      //     title: item.title
+      //   },
+      // });
     },
   }
 }
