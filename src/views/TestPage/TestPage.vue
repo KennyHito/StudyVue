@@ -195,6 +195,7 @@ export default {
     this.nav.title = this.$route.query.title;
   },
   mounted() {
+    console.log('⚠️测试打印的内容:--->', this.$route);
     this.getNanoid = nanoid();
     this.movieUrl = process.env.VUE_APP_BASE_URL;
     this.checkSafeArea();

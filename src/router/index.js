@@ -14,6 +14,7 @@ const router = new Router({
     },
     {
       path: "/TestPage",
+      name:"TestPage",
       component: () => import("../views/TestPage/TestPage"),
     },
     {

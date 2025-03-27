@@ -97,10 +97,17 @@ export default {
       let item = this.vcArr[index];
       console.log('点击了第' + (index + 1) + '个按钮，按钮内容是：' + item.title);
       this.$router.push({
+        // 第一种: 使用query携带参数,可以path或者name(常用)
         path: item.vc,
         query: {
           title: item.title
-        }
+        },
+
+        // 第二种: 使用params,注意的是必须只能是name,name必须在路由中配置,否则跳转到下一个页面都是空白页面
+        // name: item.vc,
+        // params: {
+        //   title: item.title
+        // }
       });
     },
   }
