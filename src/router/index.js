@@ -84,7 +84,12 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   console.log('⚠️测试打印的内容:--->from',from);
   console.log('⚠️测试打印的内容:--->to',to);
-  next();
+  let routeConditions = window.localStorage.getItem("routeConditions")
+  if(routeConditions === '苟七' && from.name === 'TestPage' && to.name === 'AddressPage'){
+    alert('因为你是苟七,不允许你跳转!');
+  }else{
+    next();
+  }
 });
 
 export default router;

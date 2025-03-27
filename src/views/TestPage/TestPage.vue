@@ -6,6 +6,16 @@
 
     <div class="container" :style="{ marginBottom: hasSafeArea ? '84px' : '50px' }">
 
+
+      <div>
+        <button class="btn-common-style" @click="handleClick(16)">保存"苟七"</button>
+        <button class="btn-common-style" @click="handleClick(17)">获取"苟七"</button>
+        <button class="btn-common-style" @click="handleClick(18)">移除"苟七"</button>
+        <p class="text-common-style">{{ routeConditions }}</p>
+      </div>
+
+      <hr />
+
       <div style="display: flex;flex-direction: column;align-items: center;">
         <van-button class="btn-common-style" @click="handleClick(0)">获取一张猫的图片(axios)</van-button>
         <div @click="bigPicClick">
@@ -201,12 +211,13 @@ export default {
     this.movieUrl = process.env.VUE_APP_BASE_URL;
     this.checkSafeArea();
     //启动定时器
-    this.timer = setInterval(() => {
-      console.log('timer')
-      this.timeCount++;
-      this.nowDateTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
-    }, 1000);
+    // this.timer = setInterval(() => {
+    //   console.log('timer')
+    //   this.timeCount++;
+    //   this.nowDateTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
+    // }, 1000);
     this.$bus.$on("childToParThree", this.childToParThree);
+    this.routeConditions = window.localStorage.getItem("routeConditions");
   },
   data() {
     return {
@@ -255,7 +266,8 @@ export default {
       childThree: {
         value: ""
       },
-      weatherData: ''
+      weatherData: '',
+      routeConditions: ''
     };
   },
   methods: {
@@ -344,6 +356,12 @@ export default {
         }).catch(err => {
           console.log(err.message);
         });
+      } else if (type === 16) {
+        window.localStorage.setItem("routeConditions", "苟七");
+      } else if (type === 17) {
+        this.routeConditions = window.localStorage.getItem("routeConditions");
+      } else if (type === 18) {
+        window.localStorage.removeItem("routeConditions");
       } else if (type === 996) {
         this.$toast('我是客服');
       } else if (type === 997) {
@@ -420,9 +438,25 @@ export default {
     ...mapState('xixihaha', ['xxx']),
     ...mapGetters('xixihaha', ['personMsg'])
   },
-  beforeDestroy() {
-    console.log('⚠️测试打印的内容:--->', 'beforeDestroy');
-    //清除定时器
+  // beforeDestroy() {
+  //   console.log('⚠️测试打印的内容:--->', 'beforeDestroy');
+  //   //清除定时器
+  //   clearInterval(this.timer);
+  // },
+  activated() {
+    // 只有页面设置了keep-alive页面被缓存，进入页面时，会触发activated钩子函数
+    console.log('✅测试打印的内容:--->', 'activated');
+
+    // 因为通过keep-alive页面缓存了,所以定时器写在这里创建,clearInterval则写在deactivated中。
+    this.timer = setInterval(() => {
+      console.log('timer')
+      this.timeCount++;
+      this.nowDateTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
+    }, 1000);
+  },
+  deactivated() {
+    // 只有页面设置了keep-alive页面被缓存，离开页面时，会触发deactivated钩子函数
+    console.log('❌测试打印的内容:--->', 'deactivated');
     clearInterval(this.timer);
   },
 };
