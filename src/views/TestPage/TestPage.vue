@@ -185,7 +185,7 @@ import dayjs from 'dayjs';
 import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
 
 export default {
-  name: "TestPage",
+  name: "TestPage123",
   mixins: [common],
   components: {
     ChildPage,
@@ -263,7 +263,14 @@ export default {
       this.$router.back();
     },
     handleRightClick() {
-      this.$toast('啊啊啊');
+      // this.$toast('啊啊啊');
+      this.$router.push({
+        path: "/AddressPage",
+        query: {
+          title: "地址"
+        }
+      });
+
     },
     handleClick(type) {
       if (type === 0) {
