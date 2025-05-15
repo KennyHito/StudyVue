@@ -6,6 +6,7 @@
 
     <div class="container" :style="{ marginBottom: hasSafeArea ? '84px' : '50px' }">
 
+      <marquee>我是滚动的文字</marquee>
 
       <div>
         <button class="btn-common-style" @click="handleClick(16)">保存"苟七"</button>
