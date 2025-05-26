@@ -9,11 +9,15 @@
       <!-- 该组件目前已弃用 -->
       <marquee>我是滚动的文字</marquee>
 
+      <hr />
+
+      <div class="text-common-style">👇🏻 点击保存或移除后,需要再点一下获取按钮! 👇🏻</div>
       <div>
         <button class="btn-common-style" @click="handleClick(16)">保存"苟七"</button>
-        <button class="btn-common-style" @click="handleClick(17)">获取"苟七"</button>
         <button class="btn-common-style" @click="handleClick(18)">移除"苟七"</button>
-        <p class="text-common-style">{{ routeConditions }}</p>
+        <button class="btn-common-style" style="color:red;background-color: white;"
+          @click="handleClick(17)">获取"苟七"</button>
+        <p class="text-common-style">点击获取按钮,内容为:{{ routeConditions }}</p>
       </div>
 
       <hr />
@@ -42,8 +46,8 @@
       <div>{{ childTwo.value }}</div>
       <div>{{ childThree.value }}</div>
       <!-- ChildPage -->
-      <ChildPage :name="studentName" :age="studentAge" ref="showUserNameRef" :getChildMethod="getChildMethod"
-        @childToParTwo="childToParTwo" />
+      <ChildPage :name="studentName" :age="studentAge" address="北京市昌平区" ref="showUserNameRef"
+        :getChildMethod="getChildMethod" @childToParTwo="childToParTwo" />
 
       <hr />
 

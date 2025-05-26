@@ -5,6 +5,7 @@
     <van-field class="input-box" v-model="username" label="用户名" placeholder="请输入用户名" clearable />
     <div class="div-box">父组件传递过来的姓名: {{ name }}</div>
     <div class="div-box">父组件传递过来的年龄: {{ age }}</div>
+    <div class="div-box">父组件传递过来的地址: {{ address }}</div>
     <button class="btn-box" @click="handleChildToParOne">子传父方法一(props)</button>
     <button class="btn-box" @click="handleChildToParTwo">子传父方法二(自定义事件)</button>
     <button class="btn-box" @click="handleChildToParThree">子传父方法三($bus)</button>
@@ -17,7 +18,7 @@
 export default {
   name: 'ChildPage',
   // props第一种方式: 简单接受
-  props: ['name', 'age', 'getChildMethod'],
+  props: ['name', 'age', 'getChildMethod', 'address'],
 
   // props第二种方式: 接收的同时对数据进行类型限制
   // props: {
@@ -47,7 +48,7 @@ export default {
   methods: {
     showUserName() {
       if (this.username === '') {
-        this.$toast('请输入用户名')
+        this.$toast('我是子组件提示弹窗,请输入用户名')
         return
       }
       this.$toast("输入的用户名:" + this.username)
