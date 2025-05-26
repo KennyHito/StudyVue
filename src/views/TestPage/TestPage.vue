@@ -194,6 +194,8 @@ import { nanoid } from 'nanoid';
 import http from '../../config/httpService.js'
 import dayjs from 'dayjs';
 import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
+import priceJsonData from '@/assets/price.json'; // 路径根据项目结构调整
+import jsonData from '@/assets/data.json'; // 路径根据项目结构调整
 
 export default {
   name: "TestPage123",
@@ -219,6 +221,8 @@ export default {
     // }, 1000);
     this.$bus.$on("childToParThree", this.childToParThree);
     this.routeConditions = window.localStorage.getItem("routeConditions");
+
+    this.testMethod();
   },
   data() {
     return {
@@ -268,10 +272,33 @@ export default {
         value: ""
       },
       weatherData: '',
-      routeConditions: ''
+      routeConditions: '',
+      priceData: priceJsonData, // 直接使用导入的数据
+      jsonData1: jsonData
     };
   },
   methods: {
+    async testMethod() {
+      let num = 0.00;
+      for (let i = 0; i < this.priceData.data.length; i++) {
+        const element = this.priceData.data[i];
+        num = num + (element.ref_get * 100)
+      }
+      console.log('返现总金额--->', num / 100);
+
+      let x = 0.00;
+      for (let index = 0; index < this.jsonData1.data.length; index++) {
+        const element = this.jsonData1.data[index];
+        if (element.code.includes("返利转余额")) {
+          x = x + (element.number * 100)
+        }
+      }
+      console.log('返利转余额:--->', x / 100);
+
+      // 红包用了: 413.5元
+
+      console.log('差的金额:--->', (num - x) / 100 - 413.5);
+    },
     handleLeftClick() {
       this.$router.back();
     },

@@ -1,0 +1,898 @@
+{
+  "data": [
+    {
+      "id": 1827,
+      "userid": 604,
+      "ref_get": 28.75,
+      "datetime": 1748157498
+    },
+    {
+      "id": 1826,
+      "userid": 6076,
+      "ref_get": 3,
+      "datetime": 1748095447
+    },
+    {
+      "id": 1821,
+      "userid": 5751,
+      "ref_get": 3,
+      "datetime": 1747728826
+    },
+    {
+      "id": 1816,
+      "userid": 5232,
+      "ref_get": 5,
+      "datetime": 1747361230
+    },
+    {
+      "id": 1815,
+      "userid": 6316,
+      "ref_get": 2.75,
+      "datetime": 1747233251
+    },
+    {
+      "id": 1814,
+      "userid": 6166,
+      "ref_get": 3,
+      "datetime": 1747073274
+    },
+    {
+      "id": 1808,
+      "userid": 6081,
+      "ref_get": 2.75,
+      "datetime": 1746433432
+    },
+    {
+      "id": 1801,
+      "userid": 1676,
+      "ref_get": 55,
+      "datetime": 1746270976
+    },
+    {
+      "id": 1799,
+      "userid": 5812,
+      "ref_get": 19.25,
+      "datetime": 1746171025
+    },
+    {
+      "id": 1793,
+      "userid": 1780,
+      "ref_get": 3,
+      "datetime": 1745720088
+    },
+    {
+      "id": 1788,
+      "userid": 6051,
+      "ref_get": 3,
+      "datetime": 1745336021
+    },
+    {
+      "id": 1785,
+      "userid": 6076,
+      "ref_get": 3,
+      "datetime": 1745114350
+    },
+    {
+      "id": 1783,
+      "userid": 1865,
+      "ref_get": 2.50,
+      "datetime": 1745037813
+    },
+    {
+      "id": 1782,
+      "userid": 5751,
+      "ref_get": 3,
+      "datetime": 1745005260
+    },
+    {
+      "id": 1776,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1744884347
+    },
+    {
+      "id": 1775,
+      "userid": 6161,
+      "ref_get": 4.75,
+      "datetime": 1744868839
+    },
+    {
+      "id": 1754,
+      "userid": 5812,
+      "ref_get": 2.75,
+      "datetime": 1743147177
+    },
+    {
+      "id": 1750,
+      "userid": 6051,
+      "ref_get": 3,
+      "datetime": 1742637418
+    },
+    {
+      "id": 1747,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1742461483
+    },
+    {
+      "id": 1739,
+      "userid": 6166,
+      "ref_get": 3,
+      "datetime": 1742132288
+    },
+    {
+      "id": 1730,
+      "userid": 1483,
+      "ref_get": 17.50,
+      "datetime": 1741254093
+    },
+    {
+      "id": 1720,
+      "userid": 604,
+      "ref_get": 15,
+      "datetime": 1740582185
+    },
+    {
+      "id": 1719,
+      "userid": 6076,
+      "ref_get": 2.75,
+      "datetime": 1740509977
+    },
+    {
+      "id": 1714,
+      "userid": 5232,
+      "ref_get": 5,
+      "datetime": 1740055254
+    },
+    {
+      "id": 1711,
+      "userid": 6051,
+      "ref_get": 2.75,
+      "datetime": 1739951010
+    },
+    {
+      "id": 1710,
+      "userid": 5751,
+      "ref_get": 3,
+      "datetime": 1739937819
+    },
+    {
+      "id": 1695,
+      "userid": 1506,
+      "ref_get": 19.25,
+      "datetime": 1738910881
+    },
+    {
+      "id": 1693,
+      "userid": 2634,
+      "ref_get": 19.25,
+      "datetime": 1738747462
+    },
+    {
+      "id": 1690,
+      "userid": 1865,
+      "ref_get": 2.28,
+      "datetime": 1738547846
+    },
+    {
+      "id": 1688,
+      "userid": 3101,
+      "ref_get": 19.25,
+      "datetime": 1738513712
+    },
+    {
+      "id": 1682,
+      "userid": 2636,
+      "ref_get": 26,
+      "datetime": 1738331896
+    },
+    {
+      "id": 1673,
+      "userid": 2636,
+      "ref_get": 3,
+      "datetime": 1737785525
+    },
+    {
+      "id": 1670,
+      "userid": 5256,
+      "ref_get": 3,
+      "datetime": 1737450203
+    },
+    {
+      "id": 1665,
+      "userid": 5751,
+      "ref_get": 3,
+      "datetime": 1737219392
+    },
+    {
+      "id": 1659,
+      "userid": 5232,
+      "ref_get": 5,
+      "datetime": 1737031387
+    },
+    {
+      "id": 1651,
+      "userid": 1506,
+      "ref_get": 3,
+      "datetime": 1735893820
+    },
+    {
+      "id": 1636,
+      "userid": 2636,
+      "ref_get": 3,
+      "datetime": 1735181175
+    },
+    {
+      "id": 1628,
+      "userid": 5751,
+      "ref_get": 2.75,
+      "datetime": 1734617484
+    },
+    {
+      "id": 1609,
+      "userid": 5232,
+      "ref_get": 5,
+      "datetime": 1733722009
+    },
+    {
+      "id": 1599,
+      "userid": 1506,
+      "ref_get": 6.31,
+      "datetime": 1732976638
+    },
+    {
+      "id": 1596,
+      "userid": 5256,
+      "ref_get": 3,
+      "datetime": 1732696136
+    },
+    {
+      "id": 1595,
+      "userid": 2579,
+      "ref_get": 27.62,
+      "datetime": 1732693778
+    },
+    {
+      "id": 1594,
+      "userid": 1865,
+      "ref_get": 3.75,
+      "datetime": 1732619325
+    },
+    {
+      "id": 1582,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1731739973
+    },
+    {
+      "id": 1577,
+      "userid": 5232,
+      "ref_get": 5,
+      "datetime": 1731125180
+    },
+    {
+      "id": 1576,
+      "userid": 4576,
+      "ref_get": 19.25,
+      "datetime": 1731109727
+    },
+    {
+      "id": 1558,
+      "userid": 1506,
+      "ref_get": 7.50,
+      "datetime": 1730427760
+    },
+    {
+      "id": 1556,
+      "userid": 3101,
+      "ref_get": 8.75,
+      "datetime": 1730389011
+    },
+    {
+      "id": 1541,
+      "userid": 5232,
+      "ref_get": 5,
+      "datetime": 1728717235
+    },
+    {
+      "id": 1535,
+      "userid": 4576,
+      "ref_get": 5,
+      "datetime": 1728265603
+    },
+    {
+      "id": 1525,
+      "userid": 3101,
+      "ref_get": 3,
+      "datetime": 1727697782
+    },
+    {
+      "id": 1522,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1727609267
+    },
+    {
+      "id": 1502,
+      "userid": 5232,
+      "ref_get": 5,
+      "datetime": 1725880697
+    },
+    {
+      "id": 1498,
+      "userid": 4576,
+      "ref_get": 5,
+      "datetime": 1725641032
+    },
+    {
+      "id": 1481,
+      "userid": 5256,
+      "ref_get": 5,
+      "datetime": 1724910045
+    },
+    {
+      "id": 1474,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1724639702
+    },
+    {
+      "id": 1460,
+      "userid": 5232,
+      "ref_get": 5,
+      "datetime": 1723401592
+    },
+    {
+      "id": 1458,
+      "userid": 5327,
+      "ref_get": 32.25,
+      "datetime": 1723169694
+    },
+    {
+      "id": 1457,
+      "userid": 4576,
+      "ref_get": 5,
+      "datetime": 1723047701
+    },
+    {
+      "id": 1451,
+      "userid": 1506,
+      "ref_get": 15,
+      "datetime": 1722642106
+    },
+    {
+      "id": 1440,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1721907780
+    },
+    {
+      "id": 1431,
+      "userid": 5256,
+      "ref_get": 4.75,
+      "datetime": 1721263840
+    },
+    {
+      "id": 1421,
+      "userid": 783,
+      "ref_get": 32.50,
+      "datetime": 1719706617
+    },
+    {
+      "id": 1419,
+      "userid": 4670,
+      "ref_get": 5,
+      "datetime": 1719365778
+    },
+    {
+      "id": 1412,
+      "userid": 4576,
+      "ref_get": 5,
+      "datetime": 1718845853
+    },
+    {
+      "id": 1411,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1718769875
+    },
+    {
+      "id": 1408,
+      "userid": 2797,
+      "ref_get": 19.25,
+      "datetime": 1718277178
+    },
+    {
+      "id": 1406,
+      "userid": 2797,
+      "ref_get": 19.25,
+      "datetime": 1718179874
+    },
+    {
+      "id": 1398,
+      "userid": 4670,
+      "ref_get": 5,
+      "datetime": 1716774055
+    },
+    {
+      "id": 1394,
+      "userid": 1865,
+      "ref_get": 5,
+      "datetime": 1716127154
+    },
+    {
+      "id": 1389,
+      "userid": 4576,
+      "ref_get": 5,
+      "datetime": 1715321536
+    },
+    {
+      "id": 1383,
+      "userid": 1676,
+      "ref_get": 55,
+      "datetime": 1715154701
+    },
+    {
+      "id": 1376,
+      "userid": 1506,
+      "ref_get": 8.75,
+      "datetime": 1714494022
+    },
+    {
+      "id": 1372,
+      "userid": 1780,
+      "ref_get": 55,
+      "datetime": 1713840105
+    },
+    {
+      "id": 1368,
+      "userid": 4670,
+      "ref_get": 5,
+      "datetime": 1713755104
+    },
+    {
+      "id": 1366,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1713058083
+    },
+    {
+      "id": 1362,
+      "userid": 4576,
+      "ref_get": 5,
+      "datetime": 1712499069
+    },
+    {
+      "id": 1356,
+      "userid": 1506,
+      "ref_get": 3,
+      "datetime": 1711596939
+    },
+    {
+      "id": 1352,
+      "userid": 4670,
+      "ref_get": 5,
+      "datetime": 1711334431
+    },
+    {
+      "id": 1346,
+      "userid": 1483,
+      "ref_get": 32.50,
+      "datetime": 1710817798
+    },
+    {
+      "id": 1343,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1710118819
+    },
+    {
+      "id": 1339,
+      "userid": 604,
+      "ref_get": 80,
+      "datetime": 1709395690
+    },
+    {
+      "id": 1335,
+      "userid": 4576,
+      "ref_get": 4.75,
+      "datetime": 1709129744
+    },
+    {
+      "id": 1329,
+      "userid": 1506,
+      "ref_get": 3,
+      "datetime": 1708951178
+    },
+    {
+      "id": 1328,
+      "userid": 4670,
+      "ref_get": 4.75,
+      "datetime": 1708931170
+    },
+    {
+      "id": 1325,
+      "userid": 4643,
+      "ref_get": 4.75,
+      "datetime": 1708615210
+    },
+    {
+      "id": 1317,
+      "userid": 1676,
+      "ref_get": 8.75,
+      "datetime": 1708261077
+    },
+    {
+      "id": 1309,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1707357889
+    },
+    {
+      "id": 1307,
+      "userid": 2634,
+      "ref_get": 19.25,
+      "datetime": 1707270854
+    },
+    {
+      "id": 1299,
+      "userid": 1506,
+      "ref_get": 3,
+      "datetime": 1706176683
+    },
+    {
+      "id": 1293,
+      "userid": 1676,
+      "ref_get": 5,
+      "datetime": 1705561865
+    },
+    {
+      "id": 1288,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1704951566
+    },
+    {
+      "id": 1269,
+      "userid": 2636,
+      "ref_get": 30,
+      "datetime": 1702448852
+    },
+    {
+      "id": 1266,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1702355468
+    },
+    {
+      "id": 1257,
+      "userid": 2579,
+      "ref_get": 26,
+      "datetime": 1701151512
+    },
+    {
+      "id": 1247,
+      "userid": 1865,
+      "ref_get": 3.63,
+      "datetime": 1700457882
+    },
+    {
+      "id": 1221,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1699068935
+    },
+    {
+      "id": 1198,
+      "userid": 1676,
+      "ref_get": 8.75,
+      "datetime": 1696755413
+    },
+    {
+      "id": 1194,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1696471134
+    },
+    {
+      "id": 1188,
+      "userid": 3101,
+      "ref_get": 18.50,
+      "datetime": 1695964544
+    },
+    {
+      "id": 1152,
+      "userid": 1355,
+      "ref_get": 3,
+      "datetime": 1693819352
+    },
+    {
+      "id": 1151,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1693799931
+    },
+    {
+      "id": 1143,
+      "userid": 3878,
+      "ref_get": 3,
+      "datetime": 1693499491
+    },
+    {
+      "id": 1131,
+      "userid": 1506,
+      "ref_get": 19,
+      "datetime": 1693092986
+    },
+    {
+      "id": 1117,
+      "userid": 3906,
+      "ref_get": 2.75,
+      "datetime": 1691759096
+    },
+    {
+      "id": 1113,
+      "userid": 2142,
+      "ref_get": 3,
+      "datetime": 1691565797
+    },
+    {
+      "id": 1104,
+      "userid": 1865,
+      "ref_get": 3,
+      "datetime": 1691207736
+    },
+    {
+      "id": 1093,
+      "userid": 3878,
+      "ref_get": 2.75,
+      "datetime": 1690815580
+    },
+    {
+      "id": 1083,
+      "userid": 3101,
+      "ref_get": 8.75,
+      "datetime": 1690463681
+    },
+    {
+      "id": 1070,
+      "userid": 1676,
+      "ref_get": 8.75,
+      "datetime": 1689989364
+    },
+    {
+      "id": 875,
+      "userid": 3101,
+      "ref_get": 8.50,
+      "datetime": 1680409412
+    },
+    {
+      "id": 838,
+      "userid": 2797,
+      "ref_get": 4.75,
+      "datetime": 1676600739
+    },
+    {
+      "id": 824,
+      "userid": 2634,
+      "ref_get": 4.75,
+      "datetime": 1670571937
+    },
+    {
+      "id": 823,
+      "userid": 2636,
+      "ref_get": 29,
+      "datetime": 1670311445
+    },
+    {
+      "id": 820,
+      "userid": 2598,
+      "ref_get": 4.75,
+      "datetime": 1669629027
+    },
+    {
+      "id": 818,
+      "userid": 2579,
+      "ref_get": 29,
+      "datetime": 1669350986
+    },
+    {
+      "id": 772,
+      "userid": 2142,
+      "ref_get": 2.75,
+      "datetime": 1656592000
+    },
+    {
+      "id": 759,
+      "userid": 1483,
+      "ref_get": 8.75,
+      "datetime": 1655188582
+    },
+    {
+      "id": 757,
+      "userid": 1355,
+      "ref_get": 3,
+      "datetime": 1655175232
+    },
+    {
+      "id": 728,
+      "userid": 1865,
+      "ref_get": 2.70,
+      "datetime": 1653791721
+    },
+    {
+      "id": 718,
+      "userid": 1506,
+      "ref_get": 1.25,
+      "datetime": 1653301485
+    },
+    {
+      "id": 717,
+      "userid": 1506,
+      "ref_get": 1.50,
+      "datetime": 1653301393
+    },
+    {
+      "id": 693,
+      "userid": 1355,
+      "ref_get": 2.70,
+      "datetime": 1652459334
+    },
+    {
+      "id": 684,
+      "userid": 1771,
+      "ref_get": 4.50,
+      "datetime": 1651870710
+    },
+    {
+      "id": 670,
+      "userid": 1865,
+      "ref_get": 2.45,
+      "datetime": 1651137767
+    },
+    {
+      "id": 655,
+      "userid": 1506,
+      "ref_get": 2.70,
+      "datetime": 1650454016
+    },
+    {
+      "id": 641,
+      "userid": 1366,
+      "ref_get": 30,
+      "datetime": 1650082696
+    },
+    {
+      "id": 635,
+      "userid": 1355,
+      "ref_get": 2.70,
+      "datetime": 1649863566
+    },
+    {
+      "id": 620,
+      "userid": 1780,
+      "ref_get": 7.25,
+      "datetime": 1649297672
+    },
+    {
+      "id": 618,
+      "userid": 1771,
+      "ref_get": 4.25,
+      "datetime": 1649164497
+    },
+    {
+      "id": 590,
+      "userid": 1676,
+      "ref_get": 12.75,
+      "datetime": 1647946431
+    },
+    {
+      "id": 584,
+      "userid": 1506,
+      "ref_get": 2.70,
+      "datetime": 1647847450
+    },
+    {
+      "id": 549,
+      "userid": 604,
+      "ref_get": 50,
+      "datetime": 1647444154
+    },
+    {
+      "id": 548,
+      "userid": 1483,
+      "ref_get": 7.50,
+      "datetime": 1647412368
+    },
+    {
+      "id": 543,
+      "userid": 1355,
+      "ref_get": 2.70,
+      "datetime": 1647241533
+    },
+    {
+      "id": 502,
+      "userid": 1506,
+      "ref_get": 2.45,
+      "datetime": 1644909709
+    },
+    {
+      "id": 498,
+      "userid": 1483,
+      "ref_get": 2.45,
+      "datetime": 1644803348
+    },
+    {
+      "id": 489,
+      "userid": 1366,
+      "ref_get": 7.50,
+      "datetime": 1644148331
+    },
+    {
+      "id": 487,
+      "userid": 1355,
+      "ref_get": 1.40,
+      "datetime": 1644076738
+    },
+    {
+      "id": 449,
+      "userid": 1366,
+      "ref_get": 2.45,
+      "datetime": 1641620683
+    },
+    {
+      "id": 447,
+      "userid": 783,
+      "ref_get": 15,
+      "datetime": 1641477332
+    },
+    {
+      "id": 443,
+      "userid": 1355,
+      "ref_get": 5,
+      "datetime": 1641389554
+    },
+    {
+      "id": 304,
+      "userid": 783,
+      "ref_get": 7.50,
+      "datetime": 1632927368
+    },
+    {
+      "id": 286,
+      "userid": 604,
+      "ref_get": 25,
+      "datetime": 1631889816
+    },
+    {
+      "id": 202,
+      "userid": 783,
+      "ref_get": 12,
+      "datetime": 1625752077
+    },
+    {
+      "id": 153,
+      "userid": 604,
+      "ref_get": 9.60,
+      "datetime": 1621521717
+    },
+    {
+      "id": 152,
+      "userid": 604,
+      "ref_get": 3.52,
+      "datetime": 1621521605
+    },
+    {
+      "id": 124,
+      "userid": 604,
+      "ref_get": 6,
+      "datetime": 1618410017
+    },
+    {
+      "id": 104,
+      "userid": 604,
+      "ref_get": 5.60,
+      "datetime": 1616226191
+    }
+  ]
+}
