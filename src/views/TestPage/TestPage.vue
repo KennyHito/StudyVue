@@ -6,6 +6,9 @@
 
     <div class="container" :style="{ marginBottom: hasSafeArea ? '84px' : '50px' }">
 
+      <button class="standard-button ">样式测试按钮</button>
+      <hr />
+
       <!-- 该组件目前已弃用 -->
       <marquee>我是滚动的文字</marquee>
 
