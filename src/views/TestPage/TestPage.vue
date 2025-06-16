@@ -376,6 +376,25 @@ export default {
         }).catch(err => {
           console.log(err.message);
         });
+
+        // 这个是原生iOS交互的代码
+        // let dict = {
+        //   name: "张三",
+        //   age: 18,
+        //   address: "上海",
+        //   sex: "男",
+        //   height: 180,
+        //   school: {
+        //     name: "上海大学",
+        //     address: "上海",
+        //     score: {
+        //       math: 90,
+        //       english: 80,
+        //       chinese: 100
+        //     }
+        //   }
+        // }
+        // window.webkit.messageHandlers.FirstJsObect.postMessage(dict);
       } else if (type === 15) {
         // 请求天气接口
         let weatherArr = process.env.VUE_APP_CITY_CODE.split(',')
