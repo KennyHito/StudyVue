@@ -204,6 +204,7 @@ import dayjs from 'dayjs';
 import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
 import priceJsonData from '@/assets/price.json'; // 路径根据项目结构调整
 import jsonData from '@/assets/data.json'; // 路径根据项目结构调整
+import { Request_Api_1, Request_Api_2, Request_Api_3 } from '@/config/ApiHeader.js';
 
 export default {
   name: "TestPage123",
@@ -322,7 +323,17 @@ export default {
     },
     handleClick(type) {
       if (type === 0) {
-        this.getCarApi();
+        http.get(Request_Api_2).then(res => {
+          if (res.status === 200) {
+            this.catData = {
+              height: res.data[0].height.metric,
+              width: res.data[0].width.metric,
+              url: res.data[0].url
+            };
+          } else {
+            this.$toast(res.statusText);
+          }
+        });
       } else if (type === 1) {
         // 父传子
         this.studentName = "张三";
@@ -456,19 +467,6 @@ export default {
           CSS.supports('padding-top: constant(safe-area-inset-top)') ||
           CSS.supports('padding-top: env(safe-area-inset-top)');
       }
-    },
-    getCarApi() {
-      http.get('https://api.thecatapi.com/v1/images/search').then(res => {
-        if (res.status === 200) {
-          this.catData = {
-            height: res.data[0].height.metric,
-            width: res.data[0].width.metric,
-            url: res.data[0].url
-          };
-        } else {
-          this.$toast(res.statusText);
-        }
-      });
     },
     bigPicClick() {
       this.bigPic.images = [this.catData.url];

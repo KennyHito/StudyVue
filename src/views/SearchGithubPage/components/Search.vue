@@ -13,7 +13,7 @@
 <script>
 // 引入其他组件
 import http from '@/config/httpService';
-
+import { Request_Api_1, Request_Api_2, Request_Api_3 } from '@/config/ApiHeader.js';
 export default {
   name: 'Search',
   data() {
@@ -33,7 +33,7 @@ export default {
         return;
       }
       this.$bus.$emit('getUserInfo', JSON.stringify({ isLoading: true, items: [] }));
-      http.get('https://api.github.com/search/users?q=' + this.username).then(res => {
+      http.get(Request_Api_3 + this.username).then(res => {
         if (res.status === 200) {
           if (res.data.total_count === 0) {
             this.$toast("暂无数据");
