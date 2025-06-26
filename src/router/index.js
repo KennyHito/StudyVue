@@ -117,6 +117,11 @@ const router = new Router({
       name:"VuexSharedPage",
       component: () => import("../views/VuexSharedPage/VuexSharedPage"),
     },
+    {
+      path: "/MockPage",
+      name:"MockPage",
+      component: () => import("../views/MockPage/MockPage"),
+    },
   ]
 });
 

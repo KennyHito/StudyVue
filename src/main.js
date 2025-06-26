@@ -17,6 +17,10 @@ document.addEventListener('dblclick', (e) => {
   e.preventDefault();
 }, true);
 
+if (process.env.NODE_ENV === 'development') {
+  require('./mock/user'); // 只在开发环境引入Mock
+}
+
 window.vm = new Vue({
 	el: '#app',
 	router,
