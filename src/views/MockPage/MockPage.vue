@@ -15,8 +15,9 @@
             <th>姓名</th>
             <th>年龄</th>
             <th>性别</th>
+            <th>手机号</th>
             <th>邮箱</th>
-            <th>注册时间</th>
+            <th>地址</th>
           </tr>
         </thead>
         <tbody>
@@ -26,8 +27,9 @@
             <td>{{ user.name }}</td>
             <td>{{ user.age }}</td>
             <td>{{ user.gender }}</td>
+            <td>{{ user.phone }}</td>
             <td>{{ user.email }}</td>
-            <td>{{ user.createTime }}</td>
+            <td>{{ user.address }}</td>
           </tr>
         </tbody>
       </table>
