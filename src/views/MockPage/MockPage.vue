@@ -14,7 +14,7 @@
           <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
             <div v-for="user in userList" :key="user.id">
               <div>序号: {{ user.id }}</div>
-              <div>头像:
+              <div class="custom-img-box">头像:
                 <img :src="user.avatar" alt="用户头像" class="custom-img" />
               </div>
               <div>姓名: {{ user.name }}</div>
@@ -23,6 +23,7 @@
               <div>手机号: {{ user.phone }}</div>
               <div>邮箱: {{ user.email }}</div>
               <div>地址: {{ user.address }}</div>
+              <div>创建时间: {{ user.createTime }}</div>
               <hr />
             </div>
           </van-list>
@@ -77,13 +78,6 @@ export default {
     fetchUserList(flag) {
       console.log('⚠️我加载了数据!');
       if (flag) {
-        this.refreshing = true;
-        // 清空列表数据
-        this.finished = false;
-
-        // 重新加载数据
-        // 将 loading 设置为 true，表示处于加载状态
-        this.loading = true;
         this.currentPage = 1;
         this.userList = [];
       }
@@ -145,6 +139,12 @@ export default {
 
 .content-box {
   padding: 10px;
+
+  .custom-img-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
   .custom-img {
     width: 30px;

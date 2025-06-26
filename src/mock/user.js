@@ -6,14 +6,14 @@ Mock.mock('/api/users','post', (options) => {
  // 解析请求体中的分页参数
   const { page = 1, pageSize = 10, keyword = '' } = JSON.parse(options.body || '{}');
   
-  // 生成模拟数据（100条基础数据）
-  const total = 100;
+  // 生成模拟数据总条数
+  const total = 120;
   const allUsers = Mock.mock({
     [`list|${total}`]: [
       {
         'id|+1': 1,                  // 自增ID，从1开始
         'name': '@cname',            // 随机中文姓名
-        'age|1-100': 25,             // 18-60的随机整数
+        'age|18-60': 25,             // 18-60的随机整数
         'gender|1': ['男', '女'],     // 随机性别
         'email': '@email',           // 随机邮箱
         'phone': /1[3456789]\d{9}/,  // 手机号正则
