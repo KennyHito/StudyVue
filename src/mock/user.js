@@ -1,4 +1,5 @@
 import Mock from 'mockjs';
+import pinyin from 'pinyin';
 
 // 模拟用户列表接口
 Mock.mock('/api/users','post', (options) => {
@@ -16,7 +17,17 @@ Mock.mock('/api/users','post', (options) => {
         'gender|1': ['男', '女'],     // 随机性别
         'email': '@email',           // 随机邮箱
         'phone': /1[3456789]\d{9}/,  // 手机号正则
-        'avatar': '@image("100x100", "@color", "@cname")',  // 随机头像
+        'avatar': function() {
+          const firstChar = this.name.substring(0, 1);
+          const firstLetter = pinyin(firstChar, {
+            style: pinyin.STYLE_FIRST_LETTER // 获取首字母
+          })[0][0].toUpperCase();
+          return Mock.Random.image(
+            '200x200',
+            Mock.Random.color(),
+            firstLetter
+          );
+        },
         'address': '@county(true)',  // 随机地址
         'createTime': '@datetime("yyyy-MM-dd HH:mm:ss")'  // 随机创建时间
       }

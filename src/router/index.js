@@ -121,7 +121,7 @@ const router = new Router({
       path: "/MockPage",
       name:"MockPage",
       component: () => import("../views/MockPage/MockPage"),
-    },
+    }
   ]
 });
 
