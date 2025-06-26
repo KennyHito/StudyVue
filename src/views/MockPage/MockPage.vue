@@ -25,7 +25,7 @@
               <div>星座: {{ user.constellation }}</div>
               <div>婚姻状况: {{ user.maritalStatus }}</div>
               <div>学历: {{ user.education }}</div>
-              <div>账户余额: {{ user.balance }}</div>
+              <div>账户余额: {{ user.balance }}元</div>
               <div>信用分: {{ user.creditScore }}</div>
               <div>毕业学校: {{ user.graduationSchool }}</div>
               <div>邮箱: {{ user.email }}</div>
