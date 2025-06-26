@@ -1,30 +1,34 @@
 <!-- 结构 -->
 <template>
   <div>
-
-    <!-- 子组件导航栏 -->
     <MyNavBar :navBarTitle="nav.title" :navBarLeftText="nav.leftButtonText" @leftClick="handleLeftClick"
       :navBarRightText="nav.rightButtonText" @rightClick="handleRightClick" />
-    <div class="search">
-      <input v-model="searchKeyword" placeholder="搜索用户名/邮箱">
-      <button @click="fetchUserList(true)">模糊搜索</button>
-    </div>
 
-    <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-      <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-        <div v-for="user in userList" :key="user.id">
-          <div>序号: {{ user.id }}</div>
-          <div>头像: <img :src="user.avatar" alt="用户头像" class="img_box" /></div>
-          <div>姓名: {{ user.name }}</div>
-          <div>年龄: {{ user.age }}</div>
-          <div>性别: {{ user.gender }}</div>
-          <div>手机号: {{ user.phone }}</div>
-          <div>邮箱: {{ user.email }}</div>
-          <div>地址: {{ user.address }}</div>
-          <hr />
-        </div>
-      </van-list>
-    </van-pull-refresh>
+    <div>
+      <div class="search-box">
+        <van-field v-model="searchKeyword" placeholder="请输入用户名/邮箱" class="custom-field" />
+        <van-button type="danger" @click="fetchUserList(true)" class="custom-btn">模糊搜索</van-button>
+      </div>
+      <div class="content-box">
+        <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+          <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+            <div v-for="user in userList" :key="user.id">
+              <div>序号: {{ user.id }}</div>
+              <div>头像:
+                <img :src="user.avatar" alt="用户头像" class="custom-img" />
+              </div>
+              <div>姓名: {{ user.name }}</div>
+              <div>年龄: {{ user.age }}</div>
+              <div>性别: {{ user.gender }}</div>
+              <div>手机号: {{ user.phone }}</div>
+              <div>邮箱: {{ user.email }}</div>
+              <div>地址: {{ user.address }}</div>
+              <hr />
+            </div>
+          </van-list>
+        </van-pull-refresh>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -122,9 +126,30 @@ export default {
 
 <!-- 样式 -->
 <style scoped lang='less'>
-.img_box {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+.search-box {
+  padding: 10px;
+  background-color: rgb(226, 224, 224);
+  display: flex;
+  flex-direction: row;
+
+  .custom-field {
+    border-radius: 10px;
+  }
+
+  .custom-btn {
+    margin-left: 20px;
+    width: 150px;
+    border-radius: 10px;
+  }
+}
+
+.content-box {
+  padding: 10px;
+
+  .custom-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
 }
 </style>
