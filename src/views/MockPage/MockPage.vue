@@ -21,9 +21,24 @@
               <div>年龄: {{ user.age }}</div>
               <div>性别: {{ user.gender }}</div>
               <div>手机号: {{ user.phone }}</div>
+              <div>血型: {{ user.bloodType }}</div>
+              <div>星座: {{ user.constellation }}</div>
+              <div>婚姻状况: {{ user.maritalStatus }}</div>
+              <div>学历: {{ user.education }}</div>
+              <div>账户余额: {{ user.balance }}</div>
+              <div>信用分: {{ user.creditScore }}</div>
+              <div>毕业学校: {{ user.graduationSchool }}</div>
               <div>邮箱: {{ user.email }}</div>
+              <div>微信号: {{ user.wechat }}</div>
+              <div>QQ号: {{ user.qq }}</div>
+              <div>个人博客: {{ user.blog }}</div>
+              <div>职业: {{ user.profession }}</div>
+              <div>公司: {{ user.company }}</div>
               <div>地址: {{ user.address }}</div>
+              <div>爱好: {{ user.tags }}</div>
+              <div>个性签名: {{ user.signature }}</div>
               <div>创建时间: {{ user.createTime }}</div>
+              <div>最后登录时间: {{ user.lastLoginTime }}</div>
               <hr />
             </div>
           </van-list>
