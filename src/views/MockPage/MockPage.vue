@@ -7,11 +7,13 @@
     <div>
       <div class="search-box">
         <van-field v-model="searchKeyword" placeholder="请输入用户名/邮箱" class="custom-field" />
-        <van-button type="danger" @click="fetchUserList(true)" class="custom-btn">模糊搜索</van-button>
+        <van-button type="danger" @click="handleSearch()" class="custom-btn">模糊搜索</van-button>
       </div>
+
       <div class="content-box">
         <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-          <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+          <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad"
+            :immediate-check="false">
             <div v-for="user in userList" :key="user.id">
               <div>序号: {{ user.id }}</div>
               <div class="custom-img-box">头像:
@@ -77,8 +79,12 @@ export default {
       pageSize: 10,
       total: 0,
       searchKeyword: '',
-      totalPages: 0
+      totalPages: 0,
+      isSearch: false
     };
+  },
+  mounted() {
+    this.fetchUserList(true);
   },
   methods: {
     handleLeftClick() {
@@ -87,46 +93,57 @@ export default {
     handleRightClick() {
 
     },
-    onLoad() {
-      this.fetchUserList(false);
+    // 搜索按钮
+    handleSearch() {
+      this.isSearch = true;
+      this.fetchUserList(true);
     },
+    // 下拉刷新
+    onRefresh() {
+      this.fetchUserList(true);
+    },
+    // 上拉加载
+    onLoad() {
+      if (!this.isSearch) {
+        this.fetchUserList(false);
+      }
+    },
+    // 接口请求
     fetchUserList(flag) {
-      console.log('⚠️我加载了数据!');
       if (flag) {
         this.currentPage = 1;
         this.userList = [];
+        this.finished = false;
       }
-      getUserList(
-        {
-          page: this.currentPage,
-          pageSize: this.pageSize,
-          keyword: this.searchKeyword
+
+      let params = {
+        page: this.currentPage,
+        //⚠️pageSize这里由于使用mockjs模拟数据,每次请求都重新生成,会出现重复数据,只能一次性请求回来120条数据,真实的接口就无需这样判断
+        pageSize: this.isSearch && this.searchKeyword ? 120 : this.pageSize,
+        keyword: this.searchKeyword
+      }
+
+      getUserList(params).then(response => {
+        this.loading = false;
+        this.refreshing = false;
+        this.isSearch = false;
+        if (flag) {
+          this.userList = response.data.data.list;
+        } else {
+          this.userList = [...this.userList, ...response.data.data.list];
         }
-      )
-        .then(response => {
-          this.loading = false;
-          this.refreshing = false;
-          if (flag) {
-            this.userList = response.data.data.list;
-          } else {
-            this.userList = [...this.userList, ...response.data.data.list];
-          }
-          this.total = response.data.data.total;
-          this.totalPages = Math.ceil(this.total / this.pageSize);
-          if (this.currentPage >= this.totalPages) {
-            this.finished = true;
-          } else {
-            this.currentPage = this.currentPage + 1;
-          }
-        })
-        .catch(error => {
-          console.log('⚠️测试打印的内容:--->', error);
-          this.loading = false;
-          this.refreshing = false;
-        });
-    },
-    onRefresh() {
-      this.onLoad(true);
+        this.total = response.data.data.total;
+        this.totalPages = Math.ceil(this.total / this.pageSize);
+        if (this.currentPage >= this.totalPages) {
+          this.finished = true;
+        } else {
+          this.currentPage = this.currentPage + 1;
+        }
+      }).catch(() => {
+        this.loading = false;
+        this.refreshing = false;
+        this.isSearch = false;
+      });
     },
   },
 };
