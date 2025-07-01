@@ -40,7 +40,7 @@ Mock.mock('/api/users','post', (options) => {
         'longitude': '@float(110, 120, 6, 6)', // 经度
         'createTime': '@datetime("yyyy-MM-dd HH:mm:ss")', // 随机创建时间
         'signature': '@csentence(10, 25)', // 新增个性签名字段,随机10-25个中文字符
-        'balance|0-100000000.2': 0, // 账户余额(2位小数)
+        'balance|0-1000000.2': 0, // 账户余额(2位小数)
         'creditScore|300-950': 600, // 信用分
         'lastLoginTime': '@datetime("yyyy-MM-dd HH:mm:ss")', // 最后登录时间
         'wechat': 'wx_' + Mock.Random.string('lower', 8), // 随机微信ID
@@ -50,7 +50,7 @@ Mock.mock('/api/users','post', (options) => {
         'profession': '@cword(2,4)', // 随机职业
         'company': '北京@ctitle(3,5)有限公司', // 随机公司名
         'education|1': ['高中','大专','本科','硕士','博士'], // 学历
-        'graduationSchool': '@ctitle(4,7)大学', // 毕业院校
+        'graduationSchool': '@ctitle(2,4)大学', // 毕业院校
         'status|1': ['active', 'inactive', 'banned'], // 用户状态
         'vipLevel|0-5': 0, // VIP等级
         'isVerified|1': [true, false] // 是否认证
