@@ -40,15 +40,15 @@ Mock.mock('/api/users','post', (options) => {
         'longitude': '@float(110, 120, 6, 6)', // 经度
         'createTime': '@datetime("yyyy-MM-dd HH:mm:ss")', // 随机创建时间
         'signature': '@csentence(10, 25)', // 新增个性签名字段,随机10-25个中文字符
-        'balance|0-10000.2': 0, // 账户余额(2位小数)
+        'balance|0-100000000.2': 0, // 账户余额(2位小数)
         'creditScore|300-950': 600, // 信用分
         'lastLoginTime': '@datetime("yyyy-MM-dd HH:mm:ss")', // 最后登录时间
         'wechat': 'wx_' + Mock.Random.string('lower', 8), // 随机微信ID
-        'qq': /[1-9]\d{4,10}/, // QQ号正则
+        'qq': /[1-9]\d{4,12}/, // QQ号正则
         'github': 'github_' + Mock.Random.string('lower', 6), // GitHub账号
         'blog': 'https://' + Mock.Random.string('lower', 8) + '.com', // 个人博客
         'profession': '@cword(2,4)', // 随机职业
-        'company': '@ctitle(3,5)', // 随机公司名
+        'company': '北京@ctitle(3,5)有限公司', // 随机公司名
         'education|1': ['高中','大专','本科','硕士','博士'], // 学历
         'graduationSchool': '@ctitle(4,7)大学', // 毕业院校
         'status|1': ['active', 'inactive', 'banned'], // 用户状态
