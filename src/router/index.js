@@ -121,6 +121,11 @@ const router = new Router({
       path: "/MockPage",
       name:"MockPage",
       component: () => import("../views/MockPage/MockPage"),
+    },
+    {
+      path: "/TempPage",
+      name:"TempPage",
+      component: () => import("../views/TempPage/TempPage"),
     }
   ]
 });

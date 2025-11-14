@@ -29,5 +29,6 @@ window.vm = new Vue({
 	render: (h) => h(App),
 	beforeCreate() {
 		Vue.prototype.$bus = this; // 全局事件数据总线
+		localStorage.setItem('vanSwipeLastIndex', 0);//启动项目清空索引值默认为0
 	}
 })

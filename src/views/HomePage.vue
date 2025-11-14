@@ -86,6 +86,10 @@ export default {
           vc: 'MockPage',
           title: 'MockPage'
         },
+        {
+          vc: 'TempPage',
+          title: '临时页面'
+        },
 
       ],
     }
